@@ -1,0 +1,25 @@
+.aboutContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/assets/bg/bg2.png") center/cover no-repeat fixed;
+    filter: blur(3px);
+    z-index: -9;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0rem 8rem;
+    width: 100%;
+    line-height: 1.5;
+  }
+}

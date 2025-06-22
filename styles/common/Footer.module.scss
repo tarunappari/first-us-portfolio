@@ -1,0 +1,59 @@
+
+.footerContainer{
+    padding: 3rem 6rem;
+    padding-top: 5rem;
+    background-color: rgba(245, 244, 244, 1);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    .footerLinksContainer{
+
+        & > div{
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            h2{
+                font-size: 1.1rem;
+                font-weight: 600;
+                padding-bottom: 1rem;
+            }
+
+            a{
+                color: var(--para);
+                transition: 0.25s all;
+            }
+
+            a:hover{
+                color: var(--black);
+            }
+        }
+    }
+
+    .footerInput{
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(221, 219, 220, 1);
+        padding-left: 1rem;
+        input{
+            padding: 0.5rem 1rem;
+        }
+
+        button{
+            background-color: rgba(38, 38, 38, 1);
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.footerContainer::before{
+    content: '';
+    position: absolute;
+    width: 85vw;
+    height: 0.1rem;
+    top: 0;
+    background-color: var(--para);
+}
