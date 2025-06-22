@@ -1,5 +1,5 @@
 import {MainNavbar} from '@/components/common/Navbar';
-import About from '@/components/landingpage/about';
+import About from '@/components/landingpage/About';
 import HeroSection from '@/components/landingpage/HeroSection';
 import Services from '@/components/landingpage/Services';
 
