@@ -33,7 +33,7 @@
   --parawhite: rgb(255, 255, 255, 0.7);
   --para: rgb(0, 0, 0, 0.7);
   --white: #ffffff;
-  --black: rgb(5, 5, 5);
+  --black: #050505;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -73,6 +73,15 @@ body {
   color: var(--white);
   font-family: "satoshi", sans-serif;
   font-optical-sizing: auto;
+}
+
+.mainPage {
+  max-width: 101.5vw;
+  overflow-x: hidden;
+}
+
+.bgBlack{
+  background-color: var(--black) !important;
 }
 
 ::-webkit-scrollbar {
@@ -168,15 +177,15 @@ p {
   font-weight: 900 !important;
 }
 
-img,
-svg {
-  transition: 0.2s all;
-}
+// img,
+// svg {
+//   transition: 0.2s all;
+// }
 
-img:hover,
-svg:hover {
-  transform: scale(1.05);
-}
+// img:hover,
+// svg:hover {
+//   transform: scale(1.05);
+// }
 
 .whitebgButton {
   padding: 0.5rem 4rem;
@@ -372,5 +381,15 @@ svg:hover {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+// Testimonials scroll animation
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
   }
 }

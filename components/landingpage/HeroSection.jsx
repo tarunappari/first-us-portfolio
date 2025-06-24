@@ -19,9 +19,7 @@ const HeroSection = () => {
             <div className={styles.rightContainer}>
                 <SplineSceneBasic />
             </div>
-            {/* <div className={styles.rightContainer}>
-                <Lottie loop={true} animationData={bot}  />
-            </div> */}
+            
         </div>
     )
 }

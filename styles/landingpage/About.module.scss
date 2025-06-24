@@ -1,18 +1,4 @@
 .aboutContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url("/assets/bg/bg2.png") center/cover no-repeat fixed;
-    filter: blur(3px);
-    z-index: -9;
-  }
 
   h1 {
     font-size: 3rem;
