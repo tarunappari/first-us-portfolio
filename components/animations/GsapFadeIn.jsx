@@ -76,8 +76,8 @@ const GsapFadeIn = ({
           trigger: el,
           start: "top 85%", // Start earlier for smoother experience
           end: "bottom 15%",
-          toggleActions: "play none none reverse",
-          once: false, // Allow reverse animations
+          toggleActions: "play none none none", // Only play once, no reverse
+          once: true, // Animate only once
           fastScrollEnd: true, // Performance optimization
         },
         onComplete: () => {
@@ -135,7 +135,8 @@ export const useStaggeredReveal = (itemsRef, options = {}) => {
           trigger: items[0],
           start: "top 85%",
           end: "bottom 15%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none", // Only play once, no reverse
+          once: true, // Animate only once
           fastScrollEnd: true,
           ...options.trigger,
         },
@@ -169,7 +170,8 @@ export const useGsapTimeline = (targets = [], config = {}) => {
       scrollTrigger: {
         trigger: targets[0],
         start: "top 80%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none", // Only play once, no reverse
+        once: true, // Animate only once
         ...config.trigger,
       },
     });

@@ -1,4 +1,4 @@
-import {MainNavbar} from '@/components/common/Navbar';
+import { MainNavbar } from '@/components/common/Navbar';
 import Footer from '@/components/common/Footer';
 import HeroSection from '@/components/landingpage/HeroSection';
 import ClientLogos from '@/components/landingpage/ClientLogos';
@@ -10,9 +10,9 @@ import PerformanceOptimizer from '@/components/animations/PerformanceOptimizer';
 
 export default function Home() {
   return (
-    <PerformanceOptimizer>
-      <div className='relative w-full'>
-        <MainNavbar />
+    <div className='relative w-full'>
+      <MainNavbar />
+      <PerformanceOptimizer>
         <HeroSection />
         <ClientLogos />
         <LandingAbout />
@@ -20,7 +20,8 @@ export default function Home() {
         <Services />
         <Testimonials />
         <Footer />
-      </div>
-    </PerformanceOptimizer>
+      </PerformanceOptimizer>
+    </div>
+
   );
 }

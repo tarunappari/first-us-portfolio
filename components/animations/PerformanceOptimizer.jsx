@@ -21,7 +21,8 @@ const PerformanceOptimizer = ({ children }) => {
 
     // 2. Set up efficient scroll handling
     ScrollTrigger.defaults({
-      toggleActions: "play none none reverse",
+      toggleActions: "play none none none", // Only play once, no reverse
+      once: true, // Animate only once
       start: "top 85%",
       end: "bottom 15%",
       fastScrollEnd: true, // Optimize for fast scrolling
@@ -36,14 +37,14 @@ const PerformanceOptimizer = ({ children }) => {
     // 4. Batch DOM reads and writes
     ScrollTrigger.batch("[data-animate]", {
       onEnter: (elements) => {
-        gsap.fromTo(elements, 
-          { 
-            opacity: 0, 
+        gsap.fromTo(elements,
+          {
+            opacity: 0,
             y: 30,
             scale: 0.95
-          }, 
-          { 
-            opacity: 1, 
+          },
+          {
+            opacity: 1,
             y: 0,
             scale: 1,
             duration: 0.6,
@@ -53,20 +54,8 @@ const PerformanceOptimizer = ({ children }) => {
           }
         );
       },
-      onLeave: (elements) => {
-        gsap.to(elements, {
-          opacity: 0.3,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      },
-      onEnterBack: (elements) => {
-        gsap.to(elements, {
-          opacity: 1,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      }
+      once: true, // Animate only once
+      // Removed onLeave and onEnterBack for one-time animation
     });
 
     // 5. Optimize images and media for better performance
