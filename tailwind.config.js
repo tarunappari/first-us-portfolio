@@ -7,6 +7,11 @@ module.exports = {
     ],
     theme: {
       extend: {
+        fontFamily: {
+          'clash': ['clash', 'sans-serif'],
+          'satoshi': ['Satoshi', 'sans-serif'],
+          'manrope': ['manrope', 'sans-serif'],
+        },
         keyframes: {
           "accordion-down": {
             from: { height: "0px", opacity: "0" },
@@ -26,11 +31,29 @@ module.exports = {
               transform: "translate(-50%,-40%) scale(1)",
             },
           },
+          "slide-horizontal": {
+            "0%": {
+              transform: "translateX(0)",
+            },
+            "100%": {
+              transform: "translateX(-50%)",
+            },
+          },
+          "slide-vertical": {
+            "0%": {
+              transform: "translateY(0)",
+            },
+            "100%": {
+              transform: "translateY(-50%)",
+            },
+          },
         },
         animation: {
           "accordion-down": "accordion-down 0.6s ease-out", // Increased from 0.3s
           "accordion-up": "accordion-up 0.6s ease-in", // Increased from 0.3s
           spotlight: "spotlight 2s ease .75s 1 forwards",
+          "slide-horizontal": "slide-horizontal 25s linear infinite",
+          "slide-vertical": "slide-vertical 25s linear infinite",
         },
       },
     },

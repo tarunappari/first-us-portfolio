@@ -1,5 +1,6 @@
 import React from 'react';
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
+import styles from '@/styles/landingpage/Testimonials.module.scss'
 
 const testimonials = [
   {
@@ -64,19 +65,16 @@ const thirdColumn = testimonials.slice(6, 9);
 
 const Testimonials = () => {
   return (
-    <section className="my-20 relative" style={{ minHeight: '100vh', background: 'var(--black)' }}>
+    <section className={`${styles.testimonialContainer} my-20 relative`} style={{ minHeight: '100vh', background: 'var(--black)' }}>
       <div className="container z-10 mx-auto px-4">
         <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto">
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-white">
-            What our users say
+          <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-tighter mt-5 text-white">
+            What our <span className="textGradient clash">Users say</span>
           </h2>
-          <p className="text-center mt-5 opacity-75 text-white/70">
-            See what our customers have to say about us.
-          </p>
         </div>
 
-        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+        <div className="flex justify-center gap-6 mt-10 mb-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />

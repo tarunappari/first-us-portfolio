@@ -16,16 +16,16 @@
   font-family: "manrope";
   src: url("/fonts/manrope.ttf") format("truetype");
   font-weight: 100 900;
-  font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "clash";
   src: url("/fonts/clash.ttf") format("truetype");
   font-weight: 100 900;
-  font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -82,6 +82,10 @@ body {
 
 .testing{
   border: 5px solid red;
+}
+
+.white{
+  color: var(--white) ;
 }
 
 .bgBlack{
@@ -390,6 +394,25 @@ p {
 
 // Testimonials scroll animation
 @keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+// Infinite slider animations
+@keyframes slide-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slide-vertical {
   0% {
     transform: translateY(0);
   }
