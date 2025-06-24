@@ -1,0 +1,18 @@
+
+.infoContainer{
+  background: radial-gradient(
+      circle at center,
+      rgba(0, 69, 84, 0.5) -10%,
+      rgba(5, 5, 5) 40%
+    );
+
+}
+
+.cardTitle{
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.description{
+  font-size: 1rem;
+}
