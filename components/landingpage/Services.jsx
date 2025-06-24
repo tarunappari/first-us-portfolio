@@ -10,6 +10,7 @@ import {
   IconCloud,
   IconBuilding,
 } from "@tabler/icons-react";
+import GsapFadeIn from '@/components/animations/GsapFadeIn';
 
 const servicesData = [
   {
@@ -48,10 +49,14 @@ const servicesData = [
 const Services = () => {
   return (
     <div className={styles.servicesContainer} >
-      <h1>What we can do <span className='textGradient clash'>for you?</span></h1>
-      <div className="max-w-7xl mx-auto px-8">
-        <HoverEffect items={servicesData} />
-      </div>
+      <GsapFadeIn effect="zoom-in" duration={1} delay={0.2}>
+        <h1>What we can do <span className='textGradient clash'>for you?</span></h1>
+      </GsapFadeIn>
+      <GsapFadeIn effect="zoom-in" duration={1.5} delay={0.6}>
+        <div className="max-w-7xl mx-auto px-8">
+          <HoverEffect items={servicesData} />
+        </div>
+      </GsapFadeIn>
     </div>
   )
 }

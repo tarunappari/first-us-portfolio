@@ -1,5 +1,6 @@
 import React from 'react';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
+import GsapFadeIn from '@/components/animations/GsapFadeIn';
 
 const ClientLogos = () => {
   // Sample client/partner logos - you can replace these with actual client logos
@@ -40,12 +41,13 @@ const ClientLogos = () => {
 
   return (
     <section className="py-16 mx-10 relative" style={{ background: 'var(--black)' }}>
-      <InfiniteSlider
-        duration={30}
-        durationOnHover={60}
-        gap={80}
-        className="py-8"
-      >
+      <GsapFadeIn effect="slide-up" duration={1} delay={0.5}>
+        <InfiniteSlider
+          duration={30}
+          durationOnHover={60}
+          gap={80}
+          className="py-8"
+        >
         {clients.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
@@ -59,7 +61,8 @@ const ClientLogos = () => {
             />
           </div>
         ))}
-      </InfiniteSlider>
+        </InfiniteSlider>
+      </GsapFadeIn>
 
       {/* Blur/fade effects at start and end */}
       <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>

@@ -1,0 +1,202 @@
+// Performance Optimizations for GSAP Animations and Site Speed
+
+// 1. Hardware Acceleration for Smooth Animations
+.gsap-optimized {
+  will-change: transform, opacity;
+  transform: translateZ(0); // Force hardware acceleration
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+// 2. Smooth Scrolling Optimizations
+html {
+  scroll-behavior: smooth;
+}
+
+// 3. Optimize animations for better performance
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 4. Respect user's motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// 5. Optimize images for better loading
+img {
+  max-width: 100%;
+  height: auto;
+  
+  // Lazy loading optimization
+  &[data-src] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+// 6. Container queries for responsive animations
+@container (min-width: 768px) {
+  .responsive-animation {
+    animation-duration: 1s;
+  }
+}
+
+@container (max-width: 767px) {
+  .responsive-animation {
+    animation-duration: 0.5s; // Faster on mobile
+  }
+}
+
+// 7. Optimize text rendering
+.optimized-text {
+  text-rendering: optimizeSpeed;
+  font-display: swap;
+}
+
+// 8. GPU-accelerated transforms
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+// 9. Efficient hover effects
+.efficient-hover {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// 10. Optimize for touch devices
+@media (hover: none) and (pointer: coarse) {
+  .hover-effect {
+    // Disable hover effects on touch devices
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// 11. Critical CSS for above-the-fold content
+.critical-content {
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+// 12. Optimize scrolling performance
+.scroll-container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; // iOS smooth scrolling
+  scroll-snap-type: y mandatory;
+}
+
+// 13. Reduce layout thrashing
+.layout-stable {
+  contain: layout;
+  min-height: 0; // Prevent unnecessary height calculations
+}
+
+// 14. Optimize animations for 60fps
+@keyframes optimizedFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-optimized {
+  animation: optimizedFadeIn 0.6s ease-out forwards;
+}
+
+// 15. Efficient stagger animations
+.stagger-container {
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    
+    &.animate {
+      animation: optimizedFadeIn 0.6s ease-out forwards;
+    }
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+}
+
+// 16. Optimize for different screen sizes
+@media (max-width: 768px) {
+  .mobile-optimized {
+    // Reduce animation complexity on mobile
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+}
+
+// 17. Preload critical animations
+.preload-animation {
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  
+  &.ready {
+    animation-play-state: running;
+  }
+}
+
+// 18. Efficient parallax effects
+.parallax-optimized {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  
+  &.parallax-active {
+    transform: translate3d(0, var(--parallax-offset, 0), 0);
+  }
+}
+
+// 19. Optimize for high refresh rate displays
+@media (min-resolution: 120dpi) {
+  .high-refresh-optimized {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// 20. Memory-efficient animations
+.memory-efficient {
+  // Use transform instead of changing layout properties
+  &.slide-in {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}

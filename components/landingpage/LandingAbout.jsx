@@ -1,16 +1,21 @@
 import React from 'react'
 import { SparklesCore } from "@/components/ui/sparkles"
 import styles from '@/styles/landingpage/About.module.scss'
+import GsapFadeIn from '@/components/animations/GsapFadeIn'
 
 const LandingAbout = () => {
   return (
     <div className={`h-[40rem] w-full flex flex-col items-center justify-center overflow-hidden rounded-md ${styles.aboutContainer}`}>
-      <h1 className=" text-center text-white relative z-20">
-        We’re a purpose-driven IT consulting firm that partners with ambitious leaders to turn vision into reality. Where others offer services,
-      </h1>
-      <h1 className='textGradient clash' >
-        we deliver outcomes.
-      </h1>
+      <GsapFadeIn effect="zoom-in" duration={1.25} delay={0.2}>
+        <h1 className=" text-center text-white relative z-20">
+          We’re a purpose-driven IT consulting firm that partners with ambitious leaders to turn vision into reality. Where others offer services,
+        </h1>
+      </GsapFadeIn>
+      <GsapFadeIn effect="zoom-in" duration={1.5} delay={0.5}>
+        <h1 className='textGradient clash' >
+          we deliver outcomes.
+        </h1>
+      </GsapFadeIn>
       <div className="w-[40rem] h-40 relative">
         {/* Gradients */}
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
