@@ -26,8 +26,8 @@ export function MainNavbar() {
             link: "/about",
         },
         {
-            name: "Contact",
-            link: "/contact",
+            name: "Careers",
+            link: "/careers",
         },
     ];
 

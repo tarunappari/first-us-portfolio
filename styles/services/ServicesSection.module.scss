@@ -1,0 +1,663 @@
+.servicesSection {
+  position: relative;
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #020204 50%, #03050a 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0, 168, 204, 0.1);
+  border: 1px solid rgba(0, 168, 204, 0.3);
+  border-radius: 50px;
+  color: rgba(0, 168, 204, 0.9);
+  font-family: "satoshi", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-family: "satoshi", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+
+  .gradientText {
+    background: linear-gradient(135deg, #00a8cc, #0077be);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.sectionDescription {
+  font-family: "manrope", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.serviceCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 168, 204, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 168, 204, 0.1);
+
+    .cardGlow {
+      opacity: 1;
+    }
+
+    .serviceIcon {
+      transform: scale(1.1) rotate(5deg);
+      filter: drop-shadow(0 6px 20px rgba(0, 168, 204, 0.5));
+    }
+
+    .serviceButton {
+      background: linear-gradient(135deg, #00a8cc, #0077be);
+      color: var(--white);
+
+      .buttonIcon {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 168, 204, 0.8),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.serviceVisual {
+  height: 120px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.visualContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceIcon {
+  font-size: 3.5rem;
+  z-index: 10;
+  filter: drop-shadow(0 4px 12px rgba(0, 168, 204, 0.3));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: iconFloat 4s ease-in-out infinite;
+}
+
+.serviceContent {
+  position: relative;
+  z-index: 2;
+}
+
+.serviceTitle {
+  font-family: "satoshi", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.serviceDescription {
+  font-family: "manrope", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.serviceFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  padding: 0.5rem 1rem;
+  background: rgba(0, 168, 204, 0.1);
+  border: 1px solid rgba(0, 168, 204, 0.2);
+  border-radius: 20px;
+  font-family: "satoshi", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(0, 168, 204, 0.9);
+}
+
+.serviceButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-family: "satoshi", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  span {
+    color: #fff;
+  }
+
+  .buttonIcon {
+    transition: transform 0.3s ease;
+  }
+}
+
+// Cloud Infrastructure Visual
+.cloudInfrastructureVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  // Main cloud
+  &::before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 168, 204, 0.3),
+      rgba(0, 168, 204, 0.1)
+    );
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0, 168, 204, 0.2);
+  }
+
+  // Floating servers
+  &::after {
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    width: 20px;
+    height: 25px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 119, 190, 0.4),
+      rgba(0, 119, 190, 0.2)
+    );
+    border-radius: 3px;
+    box-shadow: 0 2px 10px rgba(0, 119, 190, 0.3),
+      25px 0 0 rgba(0, 168, 204, 0.4), 50px 5px 0 rgba(0, 168, 204, 0.3);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  // Connection lines
+  .cloudInfrastructure &::before {
+    box-shadow: 0 4px 20px rgba(0, 168, 204, 0.2),
+      0 -20px 0 -10px rgba(0, 168, 204, 0.1),
+      20px 20px 0 -15px rgba(0, 168, 204, 0.1),
+      -20px 20px 0 -15px rgba(0, 168, 204, 0.1);
+  }
+}
+
+// Custom Software Visual
+.customSoftwareVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  // Laptop screen
+  &::before {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    width: 60px;
+    height: 40px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 168, 204, 0.2),
+      rgba(0, 168, 204, 0.05)
+    );
+    border: 2px solid rgba(0, 168, 204, 0.3);
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 0 20px rgba(0, 168, 204, 0.1);
+  }
+
+  // Mobile screen
+  &::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    right: 25%;
+    width: 25px;
+    height: 45px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 119, 190, 0.2),
+      rgba(0, 119, 190, 0.05)
+    );
+    border: 2px solid rgba(0, 119, 190, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 119, 190, 0.1);
+  }
+
+  // Code lines simulation
+  .customSoftware &::before {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 168, 204, 0.2),
+        rgba(0, 168, 204, 0.05)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 168, 204, 0.1) 2px,
+        rgba(0, 168, 204, 0.1) 4px
+      );
+  }
+}
+
+// Cybersecurity Visual
+
+// AI Automation Visual
+.aiAutomationVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(
+      circle,
+      rgba(0, 168, 204, 0.3) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    animation: aiPulse 2s ease-in-out infinite;
+  }
+
+  &::after {
+    content: "🧠";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 15px rgba(0, 168, 204, 0.4));
+  }
+}
+
+// IT Staffing Visual
+.itStaffingVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  // Team member 1
+  &::before {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 168, 204, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 168, 204, 0.3),
+      0 25px 0 -5px rgba(0, 168, 204, 0.4), 30px 0 0 rgba(0, 119, 190, 0.6),
+      30px 25px 0 -5px rgba(0, 119, 190, 0.4),
+      60px 10px 0 rgba(0, 168, 204, 0.5),
+      60px 35px 0 -5px rgba(0, 168, 204, 0.3);
+    animation: teamPulse 3s ease-in-out infinite;
+  }
+
+  // Connection lines between team members
+  &::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 168, 204, 0.4),
+      rgba(0, 119, 190, 0.4),
+      rgba(0, 168, 204, 0.4)
+    );
+    box-shadow: 0 15px 0 rgba(0, 168, 204, 0.3),
+      30px -10px 0 rgba(0, 119, 190, 0.3);
+    animation: connectionFlow 2s ease-in-out infinite;
+  }
+}
+
+// Strategic Consulting Visual
+.strategicConsultingVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(
+      45deg,
+      rgba(0, 168, 204, 0.2),
+      rgba(0, 168, 204, 0.05)
+    );
+    border: 1px solid rgba(0, 168, 204, 0.3);
+    border-radius: 4px;
+    transform: rotate(-10deg);
+  }
+
+  &::after {
+    content: "📊";
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    font-size: 2rem;
+    filter: drop-shadow(0 0 10px rgba(0, 168, 204, 0.3));
+  }
+}
+
+// Animations
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes aiPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes teamPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes connectionFlow {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+// Background Elements
+.backgroundElements {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(0, 168, 204, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 168, 204, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.3;
+}
+
+.floatingOrb1 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 168, 204, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 8s ease-in-out infinite;
+}
+
+.floatingOrb2 {
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 119, 190, 0.08) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .sectionTitle {
+    font-size: 3rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 968px) {
+  .servicesSection {
+    padding: 6rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.1rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .serviceCard {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesSection {
+    padding: 4rem 1rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 4rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionDescription {
+    font-size: 1rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+
+  .serviceIcon {
+    font-size: 2rem;
+    top: 15px;
+    left: 15px;
+  }
+
+  .serviceTitle {
+    font-size: 1.25rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesSection {
+    padding: 3rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .serviceCard {
+    padding: 1.25rem;
+  }
+
+  .serviceFeatures {
+    gap: 0.25rem;
+  }
+
+  .feature {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .serviceButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .serviceIcon {
+    font-size: 1.75rem;
+    top: 12px;
+    left: 12px;
+  }
+}
+
+// Icon Animation
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

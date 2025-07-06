@@ -1,0 +1,63 @@
+.demoContainer {
+  padding: 4rem 2rem;
+  background: var(--black);
+  min-height: 100vh;
+}
+
+.section {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionDesc {
+  font-family: 'manrope', sans-serif;
+  font-size: 1.1rem;
+  color: var(--parawhite);
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.webServicesGrid {
+  // Custom styles for web services grid if needed
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .demoContainer {
+    padding: 2rem 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionDesc {
+    font-size: 1rem;
+  }
+  
+  .section {
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .section {
+    margin-bottom: 3rem;
+  }
+}

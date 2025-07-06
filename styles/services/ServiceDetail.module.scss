@@ -1,0 +1,637 @@
+.serviceDetail {
+  background: linear-gradient(180deg, #0a0a0a 0%, #020204 50%, #03050a 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+// Hero Section
+.heroSection {
+  position: relative;
+  padding: 8rem 0 6rem;
+  overflow: hidden;
+}
+
+.heroContent {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.serviceIcon {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  display: block;
+  filter: drop-shadow(0 4px 20px rgba(0, 168, 204, 0.4));
+}
+
+.title {
+  font-family: 'satoshi', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(0, 168, 204, 0.9);
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-family: 'manrope', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gradientOrb1 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 168, 204, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 8s ease-in-out infinite;
+}
+
+.gradientOrb2 {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0, 119, 190, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+// Section Styling
+.benefitsSection,
+.servicesSection,
+.techSection,
+.caseStudySection,
+.pricingSection {
+  padding: 6rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00a8cc, #0077be);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+  }
+}
+
+// Benefits Section
+.benefitsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 168, 204, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+.benefitIcon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+// Services Grid
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.serviceItem {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 168, 204, 0.3);
+    transform: translateY(-4px);
+  }
+}
+
+.serviceName {
+  font-family: 'satoshi', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.serviceDesc {
+  font-family: 'manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.featuresList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.feature {
+  padding: 0.5rem 1rem;
+  background: rgba(0, 168, 204, 0.1);
+  border: 1px solid rgba(0, 168, 204, 0.2);
+  border-radius: 20px;
+  font-family: 'satoshi', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(0, 168, 204, 0.9);
+}
+
+// Technology Grid
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.techItem {
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'satoshi', sans-serif;
+  font-weight: 600;
+  color: var(--white);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 168, 204, 0.1);
+    border-color: rgba(0, 168, 204, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+// Case Study
+.caseStudy {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.caseTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgba(0, 168, 204, 0.9);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.caseContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.caseItem {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  
+  h4 {
+    font-family: 'satoshi', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-family: 'manrope', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      font-family: 'manrope', sans-serif;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+      
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: rgba(0, 168, 204, 0.9);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Pricing Section
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pricingCard {
+  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 168, 204, 0.3);
+    transform: translateY(-8px);
+  }
+  
+  &:nth-child(2) {
+    border-color: rgba(0, 168, 204, 0.4);
+    
+    &::before {
+      content: 'Popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #00a8cc, #0077be);
+      color: var(--white);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.planName {
+  font-family: 'satoshi', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.planPrice {
+  font-family: 'satoshi', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(0, 168, 204, 0.9);
+  margin-bottom: 2rem;
+}
+
+.planFeatures {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  
+  li {
+    font-family: 'manrope', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: rgba(0, 168, 204, 0.9);
+      font-weight: 600;
+    }
+  }
+}
+
+.planButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: var(--white);
+  font-family: 'satoshi', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, #00a8cc, #0077be);
+    border-color: transparent;
+  }
+}
+
+// CTA Section
+.ctaSection {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, rgba(0, 168, 204, 0.1), rgba(0, 119, 190, 0.05));
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: 'satoshi', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: 'manrope', sans-serif;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.primaryCta {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-family: 'satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 168, 204, 0.4);
+  }
+}
+
+.secondaryCta {
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-family: 'satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+  }
+}
+
+// Not Found
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+
+  h1 {
+    font-family: 'satoshi', sans-serif;
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+}
+
+.backButton {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-family: 'satoshi', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 168, 204, 0.4);
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .serviceIcon {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .heroSection {
+    padding: 6rem 0 4rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .benefitsSection,
+  .servicesSection,
+  .techSection,
+  .caseStudySection,
+  .pricingSection {
+    padding: 4rem 0;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caseContent {
+    grid-template-columns: 1fr;
+  }
+
+  .pricingGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 4rem 0 3rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .serviceIcon {
+    font-size: 3rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: 1rem;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .benefitsList {
+    grid-template-columns: 1fr;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .serviceItem,
+  .benefitItem,
+  .caseItem,
+  .pricingCard {
+    padding: 1.5rem;
+  }
+
+  .ctaContent {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}

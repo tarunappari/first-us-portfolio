@@ -1,0 +1,543 @@
+.industryExpertise {
+  position: relative;
+  padding: 8rem 0;
+  background: linear-gradient(180deg, rgba(3, 5, 10, 0.8) 0%, rgba(2, 2, 4, 0.9) 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+// Section Header
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionDescription {
+  font-family: 'manrope', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// Industries Grid
+.industriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.industryCard {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 168, 204, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 168, 204, 0.1);
+    
+    .industryIcon {
+      transform: scale(1.1) rotate(5deg);
+      filter: drop-shadow(0 6px 20px rgba(0, 168, 204, 0.5));
+    }
+    
+    .learnMoreBtn {
+      background: linear-gradient(135deg, #00a8cc, #0077be);
+      color: var(--white);
+      
+      .btnIcon {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+// Card Header
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.industryIcon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 168, 204, 0.3));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: iconFloat 4s ease-in-out infinite;
+}
+
+.industryInfo {
+  flex: 1;
+}
+
+.industryName {
+  font-family: 'satoshi', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.industryStats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.projects {
+  font-family: 'satoshi', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(0, 168, 204, 0.9);
+}
+
+.compliance {
+  font-family: 'manrope', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+// Card Content
+.industryDescription {
+  font-family: 'manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.expertiseList {
+  margin-bottom: 2rem;
+}
+
+.expertiseTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.expertiseTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.expertiseTag {
+  padding: 0.5rem 1rem;
+  background: rgba(0, 168, 204, 0.1);
+  border: 1px solid rgba(0, 168, 204, 0.2);
+  border-radius: 20px;
+  font-family: 'satoshi', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(0, 168, 204, 0.9);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 168, 204, 0.2);
+    border-color: rgba(0, 168, 204, 0.4);
+  }
+}
+
+// Card Footer
+.cardFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.learnMoreBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: var(--white);
+  font-family: 'satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnIcon {
+  transition: transform 0.3s ease;
+}
+
+// Card Visual Elements
+.cardVisual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+// Industry-specific visuals
+.healthcareVisual {
+  &::before {
+    content: '⚕️';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+.financeVisual {
+  &::before {
+    content: '📈';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+.retailVisual {
+  &::before {
+    content: '🛒';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+.saasVisual {
+  &::before {
+    content: '💻';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+.manufacturingVisual {
+  &::before {
+    content: '⚙️';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+.educationVisual {
+  &::before {
+    content: '📚';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+// CTA Section
+.ctaSection {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.ctaTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.ctaDescription {
+  font-family: 'manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-family: 'satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 168, 204, 0.4);
+  }
+}
+
+.ctaIcon {
+  font-size: 1.2rem;
+}
+
+// Background Elements
+.backgroundElements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatingOrb1 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 168, 204, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 12s ease-in-out infinite;
+}
+
+.floatingOrb2 {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(0, 119, 190, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: float 15s ease-in-out infinite reverse;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 168, 204, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 168, 204, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+// Animations
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-15px) translateX(10px); }
+  66% { transform: translateY(10px) translateX(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .industriesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 968px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .industryExpertise {
+    padding: 6rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 2.25rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.1rem;
+  }
+
+  .industriesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .industryCard {
+    padding: 1.5rem;
+  }
+
+  .cardHeader {
+    gap: 1rem;
+  }
+
+  .industryIcon {
+    font-size: 2.5rem;
+  }
+
+  .industryName {
+    font-size: 1.25rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .industryExpertise {
+    padding: 4rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 3rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionDescription {
+    font-size: 1rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .industryIcon {
+    font-size: 3rem;
+  }
+
+  .expertiseTags {
+    justify-content: center;
+  }
+
+  .cardFooter {
+    justify-content: center;
+  }
+
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaButton {
+    padding: 0.875rem 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .industryExpertise {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .industryCard {
+    padding: 1.25rem;
+  }
+
+  .industryIcon {
+    font-size: 2.5rem;
+  }
+
+  .industryName {
+    font-size: 1.1rem;
+  }
+
+  .expertiseTag {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .learnMoreBtn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.25rem;
+  }
+
+  .ctaDescription {
+    font-size: 0.9rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

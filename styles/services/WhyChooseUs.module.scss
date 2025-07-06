@@ -1,0 +1,757 @@
+.whyChooseUs {
+  position: relative;
+  padding: 8rem 0;
+  background: linear-gradient(180deg, rgba(2, 2, 4, 0.9) 0%, rgba(3, 5, 10, 0.8) 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+// Section Header
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionDescription {
+  font-family: 'manrope', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// Advantages Grid - Varied Column Layout
+.advantagesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.advantageCard {
+  position: relative;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 168, 204, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 168, 204, 0.15);
+
+    .iconGlow {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    .advantageIcon {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+
+  // Trust card - horizontal layout with emphasis
+  &.trust {
+    background: linear-gradient(135deg, rgba(0, 168, 204, 0.05), rgba(0, 119, 190, 0.02));
+    border: 1px solid rgba(0, 168, 204, 0.2);
+
+    .cardHeader {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .advantageIcon {
+      font-size: 4rem;
+      margin-right: 1rem;
+    }
+
+    .statsGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .highlightsList {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // Growth card - centered vertical layout
+  &.growth {
+    background: linear-gradient(180deg, rgba(0, 168, 204, 0.03), rgba(0, 119, 190, 0.01));
+    text-align: start;
+
+    .cardHeader {
+      align-items: start;
+      text-align: start;
+    }
+
+    .advantageIcon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .statsGrid {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 100%;
+      margin: 0 auto 2rem;
+    }
+
+    .highlightsList {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  // Collaboration card - side-by-side layout
+  &.collaboration {
+    background: linear-gradient(45deg, rgba(0, 168, 204, 0.02), rgba(0, 119, 190, 0.04));
+
+    .cardHeader {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .advantageIcon {
+      font-size: 4rem;
+      margin-right: 1rem;
+    }
+
+    .statsGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .highlightsList {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // Speed card - right-aligned layout
+  &.speed {
+    background: linear-gradient(90deg, rgba(0, 168, 204, 0.04), rgba(0, 119, 190, 0.02));
+
+    .cardHeader {
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: right;
+
+      p{
+        text-align: end;
+      }
+    }
+
+    .advantageIcon {
+      font-size: 4rem;
+      margin-left: 1rem;
+    }
+
+    .statsGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .highlightsList {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// Card Header
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.iconContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advantageIcon {
+  font-size: 3rem;
+  z-index: 2;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: iconFloat 4s ease-in-out infinite;
+}
+
+.iconGlow {
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(0, 168, 204, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.titleContainer {
+  flex: 1;
+}
+
+.advantageTitle {
+  font-family: 'satoshi', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.advantageSubtitle {
+  font-family: 'manrope', sans-serif;
+  font-size: 1rem;
+  color: rgba(0, 168, 204, 0.8);
+  font-weight: 500;
+  text-align: start;
+}
+
+// Description
+.advantageDescription {
+  font-family: 'manrope', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+// Statistics Grid
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statItem {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 168, 204, 0.05);
+  border: 1px solid rgba(0, 168, 204, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 168, 204, 0.1);
+    border-color: rgba(0, 168, 204, 0.2);
+  }
+}
+
+.statValue {
+  font-family: 'satoshi', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: rgba(0, 168, 204, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-family: 'manrope', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+// Highlights
+.highlightsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'manrope', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.highlightIcon {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #00a8cc, #0077be);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+// Card Visuals
+.cardVisual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+// Specific card visuals with unique patterns
+.trustVisual {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(0, 168, 204, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '🛡️';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+.growthVisual {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, rgba(0, 168, 204, 0.08) 0%, transparent 50%);
+    border-radius: 12px;
+    animation: pulse 3.5s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '📈';
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 2.5rem;
+    opacity: 0.3;
+    animation: float 5s ease-in-out infinite reverse;
+  }
+}
+
+.collaborationVisual {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 90px;
+    height: 60px;
+    background: linear-gradient(90deg, rgba(0, 168, 204, 0.06) 0%, rgba(0, 119, 190, 0.04) 100%);
+    border-radius: 20px;
+    animation: pulse 4.5s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '👥';
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 2.5rem;
+    opacity: 0.3;
+    animation: float 7s ease-in-out infinite;
+  }
+}
+
+.speedVisual {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 110px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(0, 168, 204, 0.05) 0%, rgba(0, 119, 190, 0.08) 100%);
+    border-radius: 25px;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '⚡';
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    font-size: 2.5rem;
+    opacity: 0.3;
+    animation: float 4s ease-in-out infinite reverse;
+  }
+}
+
+// Background Elements
+.backgroundElements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatingOrb1 {
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 168, 204, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 15s ease-in-out infinite;
+}
+
+.floatingOrb2 {
+  position: absolute;
+  bottom: 25%;
+  right: 12%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(0, 119, 190, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: float 18s ease-in-out infinite reverse;
+}
+
+.floatingOrb3 {
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(0, 168, 204, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(25px);
+  animation: float 12s ease-in-out infinite;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 168, 204, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 168, 204, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+}
+
+// Animations
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-20px) translateX(15px); }
+  66% { transform: translateY(15px) translateX(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .advantagesGrid {
+    gap: 1.5rem;
+  }
+
+  .advantageCard {
+    padding: 2rem;
+
+    // Adjust card layouts for tablet
+    &.trust,
+    &.collaboration,
+    &.speed {
+      .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .highlightsList {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &.growth {
+      .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .whyChooseUs {
+    padding: 6rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 2.25rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.1rem;
+  }
+
+  .advantagesGrid {
+    gap: 2rem;
+  }
+
+  .advantageCard {
+    // Reset all card layouts for mobile
+    &.trust,
+    &.growth,
+    &.collaboration,
+    &.speed {
+      text-align: center;
+
+      .cardHeader {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .advantageIcon {
+        font-size: 3.5rem;
+        margin: 0 0 1rem 0;
+      }
+
+      .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: none;
+        margin-bottom: 2rem;
+      }
+
+      .highlightsList {
+        grid-template-columns: 1fr;
+        max-width: none;
+        margin: 0;
+      }
+    }
+  }
+
+  .advantageCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .advantageIcon {
+    font-size: 3.5rem;
+  }
+
+  .advantageTitle {
+    font-size: 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .highlightsList {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: 1rem;
+
+    button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  .trustIndicators {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .whyChooseUs {
+    padding: 4rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 3rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionDescription {
+    font-size: 1rem;
+  }
+
+  .advantageCard {
+    padding: 1.5rem;
+  }
+
+  .advantageIcon {
+    font-size: 3rem;
+  }
+
+  .advantageTitle {
+    font-size: 1.25rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .statItem {
+    padding: 0.75rem;
+  }
+
+  .statValue {
+    font-size: 1.5rem;
+  }
+
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.75rem;
+  }
+
+  .ctaDescription {
+    font-size: 0.95rem;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .whyChooseUs {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .advantageCard {
+    padding: 1.25rem;
+  }
+
+  .advantageIcon {
+    font-size: 2.5rem;
+  }
+
+  .advantageTitle {
+    font-size: 1.1rem;
+  }
+
+  .advantageDescription {
+    font-size: 0.9rem;
+  }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+
+  .highlightItem {
+    font-size: 0.85rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaDescription {
+    font-size: 0.9rem;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .trustItem {
+    gap: 0.75rem;
+  }
+
+  .trustIcon {
+    font-size: 1.5rem;
+  }
+
+  .trustTitle {
+    font-size: 0.85rem;
+  }
+
+  .trustDesc {
+    font-size: 0.75rem;
+  }
+}
