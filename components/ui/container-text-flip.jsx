@@ -62,20 +62,25 @@ export function ContainerTextFlip({
         className={cn("inline-block", textClassName)}
         ref={textRef}
         layoutId={`word-div-${words[currentWordIndex]}-${id}`}>
-        <motion.h2 className={`${styles.letter} textGradient`}>
+        <motion.h2 className={`${styles.letter}`}>
           {words[currentWordIndex].split("").map((letter, index) => (
             <motion.span
               key={index}
               initial={{
                 opacity: 0,
-                filter: "blur(10px)",
+                y: 20,
               }}
               animate={{
                 opacity: 1,
-                filter: "blur(0px)",
+                y: 0,
               }}
               transition={{
                 delay: index * 0.02,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              style={{
+                filter: "none",
               }}>
               {letter}
             </motion.span>

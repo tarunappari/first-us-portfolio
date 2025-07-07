@@ -40,7 +40,7 @@ const ClientLogos = () => {
   ];
 
   return (
-    <section className="py-16 mx-10 relative" style={{ background: 'var(--black)' }}>
+    <section className="py-16 mx-0 relative" style={{ background: 'var(--black)' }}>
       <GsapFadeIn effect="slide-up" duration={1} delay={0.5}>
         <InfiniteSlider
           duration={30}
@@ -65,8 +65,8 @@ const ClientLogos = () => {
       </GsapFadeIn>
 
       {/* Blur/fade effects at start and end */}
-      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
-      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
+      <div className="absolute left-0 top-0 w-52 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
+      <div className="absolute right-0 top-0 w-52 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
     </section>
   );
 };

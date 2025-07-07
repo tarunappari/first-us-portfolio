@@ -81,15 +81,15 @@ body {
   overflow-x: hidden;
 }
 
-.testing{
+.testing {
   border: 5px solid red;
 }
 
-.white{
-  color: var(--white) ;
+.white {
+  color: var(--white);
 }
 
-.bgBlack{
+.bgBlack {
   background-color: var(--black) !important;
 }
 
@@ -239,15 +239,13 @@ p {
 }
 
 .textGradient {
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) -30%,
-    rgba(31, 83, 198, 1) 30%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  -webkit-background-clip: text;
+  background: linear-gradient(135deg, #00a8cc, #0077be, #004d7a);
   background-clip: text;
-  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 168, 204, 0.3));
   display: inline-block;
 }
 
@@ -422,8 +420,13 @@ p {
   }
 }
 
-//title 
+//title
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }

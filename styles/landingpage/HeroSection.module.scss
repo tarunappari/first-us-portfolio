@@ -4,6 +4,8 @@
   grid-template-columns: 60% 40%;
   align-items: center;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #020204 50%, #03050a 100%);
+  overflow: hidden;
 
   // &::before {
   //   content: "";
@@ -13,48 +15,513 @@
   //   filter: blur(1px);
   //   z-index: -9;
   // }
+}
 
-  .content {
-    padding: 3rem;
-    position: relative;
-    z-index: 9;
-    background: radial-gradient(
-      circle at center,
-      rgba(0, 69, 84, 0.5) -10%,
-      rgba(5, 5, 5) 40%
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    height: 100%;
+// Background Elements
+.backgroundElements {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
 
-    h1 {
-      font-size: 4rem;
-      font-weight: 700;
-    }
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 168, 204, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 168, 204, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+  animation: gridPulse 4s ease-in-out infinite;
+}
 
-    h2{
-      font-size: 3rem;
-      font-weight: 700;
-    }
+@keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
 
-    p {
-      font-size: 1.75rem;
-      font-weight: 700;
-    }
+.glowOrb1 {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 69, 84, 0.5) -10%,
+    rgba(5, 5, 5) 40%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 8s ease-in-out infinite;
+}
+
+.glowOrb2 {
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 69, 84, 0.5) -10%,
+    rgba(5, 5, 5) 40%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.glowOrb3 {
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 119, 190, 0.3) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+.scanLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 69, 84, 0.5) -10%,
+    rgba(5, 5, 5) 40%
+  );
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+// Tech Lines
+.techLines {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.techLine1 {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 168, 204, 0.8),
+    transparent
+  );
+  animation: techLineMove1 4s ease-in-out infinite;
+}
+
+.techLine2 {
+  position: absolute;
+  top: 70%;
+  right: 10%;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 119, 190, 0.6),
+    transparent
+  );
+  animation: techLineMove2 5s ease-in-out infinite reverse;
+}
+
+.techLine3 {
+  position: absolute;
+  top: 45%;
+  left: 80%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 168, 204, 0.7),
+    transparent
+  );
+  animation: techLineMove3 3s ease-in-out infinite;
+}
+
+@keyframes techLineMove1 {
+  0%,
+  100% {
+    transform: translateX(0) scaleX(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(50px) scaleX(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes techLineMove2 {
+  0%,
+  100% {
+    transform: translateX(0) scaleX(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(-30px) scaleX(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes techLineMove3 {
+  0%,
+  100% {
+    transform: translateX(0) scaleX(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-20px) scaleX(1.3);
+    opacity: 1;
+  }
+}
+
+// Floating Particles
+.floatingParticles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.particle1 {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 4px;
+  height: 4px;
+  background: rgba(0, 168, 204, 0.8);
+  border-radius: 50%;
+  animation: particleFloat1 6s ease-in-out infinite;
+}
+
+.particle2 {
+  position: absolute;
+  top: 60%;
+  left: 25%;
+  width: 3px;
+  height: 3px;
+  background: rgba(0, 119, 190, 0.6);
+  border-radius: 50%;
+  animation: particleFloat2 8s ease-in-out infinite;
+}
+
+.particle3 {
+  position: absolute;
+  top: 35%;
+  right: 20%;
+  width: 5px;
+  height: 5px;
+  background: rgba(0, 168, 204, 0.7);
+  border-radius: 50%;
+  animation: particleFloat3 7s ease-in-out infinite;
+}
+
+.particle4 {
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  width: 2px;
+  height: 2px;
+  background: rgba(0, 119, 190, 0.9);
+  border-radius: 50%;
+  animation: particleFloat4 5s ease-in-out infinite;
+}
+
+.particle5 {
+  position: absolute;
+  top: 10%;
+  right: 30%;
+  width: 3px;
+  height: 3px;
+  background: rgba(0, 168, 204, 0.5);
+  border-radius: 50%;
+  animation: particleFloat5 9s ease-in-out infinite;
+}
+
+@keyframes particleFloat1 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-40px) translateX(20px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat2 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-30px) translateX(-15px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat3 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-50px) translateX(10px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat4 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-25px) translateX(-20px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat5 {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-35px) translateX(25px);
+    opacity: 1;
+  }
+}
+
+// Circuit Pattern
+.circuitPattern {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  width: 120px;
+  height: 120px;
+  background-image: linear-gradient(rgba(0, 168, 204, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 168, 204, 0.2) 1px, transparent 1px);
+  background-size: 15px 15px;
+  border-radius: 10px;
+  opacity: 0.4;
+  animation: circuitPulse 3s ease-in-out infinite;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(0, 168, 204, 0.3);
+    border-radius: 50%;
+    animation: circuitRotate 8s linear infinite;
   }
 
-  .rightContainer {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0, 119, 190, 0.5);
+    border-radius: 50%;
+    animation: circuitRotate 4s linear infinite reverse;
+  }
+}
 
-    & > div {
-      height: 70%;
-    }
+@keyframes circuitPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes circuitRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+// Data Stream
+.dataStream {
+  position: absolute;
+  bottom: 15%;
+  left: 8%;
+  width: 3px;
+  height: 150px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(0, 168, 204, 0.8),
+    rgba(0, 119, 190, 0.6),
+    transparent
+  );
+  animation: dataFlow 2s ease-in-out infinite;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(0, 119, 190, 0.6),
+      transparent
+    );
+    animation: dataFlow 3s ease-in-out infinite reverse;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -8px;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(0, 168, 204, 0.5),
+      transparent
+    );
+    animation: dataFlow 2.5s ease-in-out infinite;
+  }
+}
+
+@keyframes dataFlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
+// ContainerTextFlip Styling
+.letter {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-shadow: 0 0 15px rgba(0, 168, 204, 0.15);
+  margin: 0;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  filter: none !important;
+
+  span {
+    filter: none !important;
+    -webkit-filter: none !important;
+    color: #ffffff !important;
+    text-shadow: inherit;
+  }
+}
+
+.content {
+  padding: 3rem;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 30px rgba(0, 168, 204, 0.4);
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    z-index: 9999 !important;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.rightContainer {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > div {
+    height: 70%;
   }
 }
 
