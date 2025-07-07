@@ -11,6 +11,7 @@ import {
     MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import styles from '@/styles/common/Navbar.module.scss'
 
 
@@ -32,6 +33,7 @@ export function MainNavbar() {
     ];
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <Navbar>
@@ -40,7 +42,7 @@ export function MainNavbar() {
                 <NavbarLogo />
                 <NavItems items={navItems} />
                 <div className="flex items-center gap-4">
-                    <NavbarButton variant="secondary">Contact</NavbarButton>
+                    <NavbarButton href={'/contact'} variant="secondary">Contact</NavbarButton>
                 </div>
             </NavBody>
 
@@ -58,16 +60,21 @@ export function MainNavbar() {
                     isOpen={isMobileMenuOpen}
                     onClose={() => setIsMobileMenuOpen(false)}
                 >
-                    {navItems.map((item, idx) => (
-                        <a
-                            key={`mobile-link-${idx}`}
-                            href={item.link}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className={`relative text-neutral-600 dark:text-neutral-300 ${styles.navItem}`}
-                        >
-                            <span className="block">{item.name}</span>
-                        </a>
-                    ))}
+                    {navItems.map((item, idx) => {
+                        const isActive = pathname === item.link;
+                        return (
+                            <a
+                                key={`mobile-link-${idx}`}
+                                href={item.link}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={`relative text-neutral-600 dark:text-neutral-300 ${styles.navItem} ${
+                                    isActive ? styles.activeNavItem : ""
+                                }`}
+                            >
+                                <span className="block">{item.name}</span>
+                            </a>
+                        );
+                    })}
 
                     <NavbarButton
                         onClick={() => setIsMobileMenuOpen(false)}

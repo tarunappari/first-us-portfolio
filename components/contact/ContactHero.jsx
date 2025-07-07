@@ -218,7 +218,7 @@ const ContactHero = () => {
                 </div>
               </div>
 
-              <div className={styles.contactMethod}>
+              <div className={`${styles.contactMethod} ${styles.visitUsCard}`}>
                 <div className={styles.methodIcon}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -248,7 +248,6 @@ const ContactHero = () => {
             <div className={styles.formContainer}>
               <div className={styles.formHeader}>
                 <h2 className={styles.formTitle}>Start Your Project</h2>
-                <p className={styles.formSubtitle}>Tell us about your vision and let's create something extraordinary together.</p>
               </div>
 
               <form className={styles.contactForm} onSubmit={handleSubmit}>

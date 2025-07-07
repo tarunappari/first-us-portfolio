@@ -69,6 +69,15 @@
   }
 }
 
+.activeNavItem {
+  padding: 1.25rem 1.25rem;
+  font-weight: 600;
+
+  span {
+    font-weight: 600;
+  }
+}
+
 .shineBtn {
   position: relative;
   background-color: rgb(5, 5, 5);

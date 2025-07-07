@@ -11,7 +11,7 @@ const page = () => {
       <MainNavbar />
       <PerformanceOptimizer>
         <ContactHero />
-        <ContactMap />
+        {/* <ContactMap /> */}
         <Footer />
       </PerformanceOptimizer>
     </div>

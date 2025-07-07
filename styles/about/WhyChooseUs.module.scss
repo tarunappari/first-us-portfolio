@@ -2,10 +2,26 @@
 .whyChooseSection {
   position: relative;
   padding: 8rem 0;
-  background: 
-    radial-gradient(ellipse 800px 400px at center top, rgba(0, 168, 204, 0.02) 0%, rgba(0, 168, 204, 0.005) 40%, transparent 70%),
-    radial-gradient(ellipse 600px 300px at center bottom, rgba(0, 119, 190, 0.015) 0%, rgba(0, 119, 190, 0.003) 40%, transparent 70%),
-    linear-gradient(135deg, #010204 0%, #020304 25%, #040507 50%, #020304 75%, #020306 100%);
+  background: radial-gradient(
+      ellipse 800px 400px at center top,
+      rgba(0, 168, 204, 0.02) 0%,
+      rgba(0, 168, 204, 0.005) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 600px 300px at center bottom,
+      rgba(0, 119, 190, 0.015) 0%,
+      rgba(0, 119, 190, 0.003) 40%,
+      transparent 70%
+    ),
+    linear-gradient(
+      135deg,
+      #010204 0%,
+      #020304 25%,
+      #040507 50%,
+      #020304 75%,
+      #020306 100%
+    );
   overflow: hidden;
 }
 
@@ -20,7 +36,7 @@
 // Section Header
 .sectionHeader {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .sectionTitle {
@@ -35,10 +51,10 @@
 }
 
 .sectionSubtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
-  max-width: 80%;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -48,7 +64,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  max-width: 70%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -71,8 +87,7 @@
     transform: translateY(-8px);
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.12);
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.15),
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
       0 0 0 1px rgba(255, 255, 255, 0.05);
 
     .cardIcon {
@@ -93,16 +108,22 @@
 
 // Primary Card (Customer Excellence) - Professional Blue
 .primary {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.04) 0%, rgba(255, 255, 255, 0.03) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.04) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   border: 1px solid rgba(59, 130, 246, 0.12);
-
+  
   &:hover {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, rgba(255, 255, 255, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.06) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
     border-color: rgba(59, 130, 246, 0.2);
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.15),
-      0 0 0 1px rgba(59, 130, 246, 0.1),
-      0 0 20px rgba(59, 130, 246, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(59, 130, 246, 0.1), 0 0 20px rgba(59, 130, 246, 0.08);
   }
 
   .cardIcon {
@@ -111,7 +132,11 @@
   }
 
   .iconGlow {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.12) 0%,
+      transparent 70%
+    );
   }
 
   .highlightBadge {
@@ -126,22 +151,32 @@
   }
 
   .cardGlow {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.04) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.04) 0%,
+      transparent 70%
+    );
   }
 }
 
 // Secondary Card (Solutions That Scale) - Professional Emerald
 .secondary {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(255, 255, 255, 0.03) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.04) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   border: 1px solid rgba(16, 185, 129, 0.12);
 
   &:hover {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.06) 0%, rgba(255, 255, 255, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.06) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
     border-color: rgba(16, 185, 129, 0.2);
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.15),
-      0 0 0 1px rgba(16, 185, 129, 0.1),
-      0 0 20px rgba(16, 185, 129, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(16, 185, 129, 0.1), 0 0 20px rgba(16, 185, 129, 0.08);
   }
 
   .cardIcon {
@@ -150,7 +185,11 @@
   }
 
   .iconGlow {
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.12) 0%,
+      transparent 70%
+    );
   }
 
   .highlightBadge {
@@ -165,22 +204,32 @@
   }
 
   .cardGlow {
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.04) 0%,
+      transparent 70%
+    );
   }
 }
 
 // Accent Card (Expertise and Purpose) - Professional Indigo
 .accent {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(255, 255, 255, 0.03) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.04) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   border: 1px solid rgba(99, 102, 241, 0.12);
 
   &:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(255, 255, 255, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.06) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
     border-color: rgba(99, 102, 241, 0.2);
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.15),
-      0 0 0 1px rgba(99, 102, 241, 0.1),
-      0 0 20px rgba(99, 102, 241, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(99, 102, 241, 0.1), 0 0 20px rgba(99, 102, 241, 0.08);
   }
 
   .cardIcon {
@@ -189,7 +238,11 @@
   }
 
   .iconGlow {
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.12) 0%,
+      transparent 70%
+    );
   }
 
   .highlightBadge {
@@ -204,7 +257,11 @@
   }
 
   .cardGlow {
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.04) 0%,
+      transparent 70%
+    );
   }
 }
 
@@ -245,7 +302,11 @@
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 70%
+  );
   border-radius: 16px;
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -256,6 +317,10 @@
 .cardContent {
   position: relative;
   z-index: 2;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cardTitle {
@@ -278,6 +343,9 @@
 
 .cardHighlight {
   margin-top: 1.5rem;
+  position: relative;
+  bottom: 0;
+ 
 }
 
 .highlightBadge {
@@ -302,7 +370,11 @@
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -315,25 +387,25 @@
   .whyChooseSection {
     padding: 6rem 0;
   }
-  
+
   .sectionTitle {
     font-size: 2.5rem;
   }
-  
+
   .cardsGrid {
     gap: 1.5rem;
   }
-  
+
   .trustCard {
     padding: 2rem 1.5rem;
   }
-  
+
   .cardIcon {
     width: 90px;
     height: 90px;
     margin-bottom: 1.5rem;
   }
-  
+
   .icon {
     font-size: 2.5rem;
   }
@@ -343,32 +415,32 @@
   .whyChooseSection {
     padding: 5rem 0;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
-  
+
   .sectionHeader {
     margin-bottom: 4rem;
   }
-  
+
   .sectionTitle {
     font-size: 2.25rem;
   }
-  
+
   .sectionSubtitle {
     font-size: 1.1rem;
   }
-  
+
   .cardsGrid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
   }
-  
+
   .cardTitle {
     font-size: 1.3rem;
   }
-  
+
   .cardDescription {
     font-size: 0.95rem;
   }
@@ -378,42 +450,42 @@
   .whyChooseSection {
     padding: 4rem 0;
   }
-  
+
   .sectionTitle {
     font-size: 2rem;
   }
-  
+
   .sectionSubtitle {
     font-size: 1rem;
   }
-  
+
   .cardsGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     max-width: 400px;
   }
-  
+
   .trustCard {
     padding: 2rem 1.5rem;
   }
-  
+
   .cardIcon {
     width: 80px;
     height: 80px;
   }
-  
+
   .icon {
     font-size: 2rem;
   }
-  
+
   .cardTitle {
     font-size: 1.2rem;
   }
-  
+
   .cardDescription {
     font-size: 0.9rem;
   }
-  
+
   .highlightBadge {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
@@ -424,37 +496,37 @@
   .whyChooseSection {
     padding: 3rem 0;
   }
-  
+
   .sectionHeader {
     margin-bottom: 3rem;
   }
-  
+
   .sectionTitle {
     font-size: 1.75rem;
   }
-  
+
   .trustCard {
     padding: 1.5rem 1rem;
   }
-  
+
   .cardIcon {
     width: 70px;
     height: 70px;
     margin-bottom: 1rem;
   }
-  
+
   .icon {
     font-size: 1.75rem;
   }
-  
+
   .cardTitle {
     font-size: 1.1rem;
   }
-  
+
   .cardDescription {
     font-size: 0.85rem;
   }
-  
+
   .highlightBadge {
     font-size: 0.75rem;
     padding: 0.3rem 0.6rem;

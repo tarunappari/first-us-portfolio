@@ -6,7 +6,7 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 80vw;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -14,7 +14,7 @@
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
 .badge {
@@ -34,7 +34,7 @@
 
 .sectionTitle {
   font-family: "satoshi", sans-serif;
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--white);
@@ -50,10 +50,10 @@
 
 .sectionDescription {
   font-family: "manrope", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 800px;
+  max-width: 70%;
   margin: 0 auto;
 }
 
