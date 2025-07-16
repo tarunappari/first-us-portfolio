@@ -12,9 +12,7 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import styles from '@/styles/common/Navbar.module.scss'
-
-
+import styles from '@/styles/common/Navbar.module.scss';
 
 export function MainNavbar() {
     const navItems = [

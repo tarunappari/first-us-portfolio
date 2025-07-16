@@ -1,25 +1,28 @@
-import React from 'react';
-import { InfiniteSlider } from '@/components/ui/infinite-slider';
-import GsapFadeIn from '@/components/animations/GsapFadeIn';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import styles from "@/styles/landingpage/ClientLogos.module.scss";
 
 const ClientLogos = () => {
+  const stripRef = useRef(null);
+  const logoContainerRef = useRef(null);
+
   // Sample client/partner logos - you can replace these with actual client logos
-  const clients = [
+  const clientLogos = [
     {
       name: "Microsoft",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/200px-Microsoft_logo_%282012%29.svg.png",
     },
     {
       name: "Google",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/200px-Google_%22G%22_logo.svg.png",
     },
     {
       name: "Amazon",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/200px-Amazon_icon.svg.png",
     },
     {
       name: "Apple",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/200px-Apple_logo_black.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Apple_logo_grey.svg/200px-Apple_logo_grey.svg.png",
     },
     {
       name: "IBM",
@@ -33,40 +36,96 @@ const ClientLogos = () => {
       name: "Salesforce",
       logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/200px-Salesforce.com_logo.svg.png",
     },
-    {
-      name: "Adobe",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Systems_logo_and_wordmark.svg/200px-Adobe_Systems_logo_and_wordmark.svg.png",
-    },
   ];
 
-  return (
-    <section className="py-16 mx-0 relative" style={{ background: 'var(--black)' }}>
-      <GsapFadeIn effect="slide-up" duration={1} delay={0.5}>
-        <InfiniteSlider
-          duration={30}
-          durationOnHover={60}
-          gap={80}
-          className="py-8"
-        >
-        {clients.map((client, index) => (
-          <div
-            key={`${client.name}-${index}`}
-            className="flex items-center justify-center min-w-[150px] h-15 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/10 hover:bg-white/20 transition-all duration-300 group"
-          >
-            <img
-              src={client.logo}
-              alt={`${client.name} logo`}
-              className="max-h-8 max-w-[130px] object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-              loading="lazy"
-            />
-          </div>
-        ))}
-        </InfiniteSlider>
-      </GsapFadeIn>
+  useEffect(() => {
+    if (typeof window !== "undefined" && logoContainerRef.current) {
+      const container = logoContainerRef.current;
+      const logos = container.children;
 
-      {/* Blur/fade effects at start and end */}
-      <div className="absolute left-0 top-0 w-52 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
-      <div className="absolute right-0 top-0 w-52 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
+      // Set up infinite scroll animation
+      const totalWidth = container.scrollWidth / 2; // Divide by 2 because we duplicate
+
+      gsap.set(container, { x: 0 });
+
+      // Create infinite scroll animation
+      gsap.to(container, {
+        x: -totalWidth,
+        duration: 30,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
+        },
+      });
+
+      // Add hover pause functionality
+      const handleMouseEnter = () => {
+        gsap.to(container, { timeScale: 0.1, duration: 0.3 });
+      };
+
+      const handleMouseLeave = () => {
+        gsap.to(container, { timeScale: 1, duration: 0.3 });
+      };
+
+      if (stripRef.current) {
+        stripRef.current.addEventListener("mouseenter", handleMouseEnter);
+        stripRef.current.addEventListener("mouseleave", handleMouseLeave);
+      }
+
+      return () => {
+        if (stripRef.current) {
+          stripRef.current.removeEventListener("mouseenter", handleMouseEnter);
+          stripRef.current.removeEventListener("mouseleave", handleMouseLeave);
+        }
+      };
+    }
+  }, []);
+
+  return (
+    <section className={styles.logoStripSection} ref={stripRef}>
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          
+        </div>
+
+        <div className={styles.logoStrip}>
+          <div className={styles.logoContainer} ref={logoContainerRef}>
+            {/* First set of logos */}
+            {clientLogos.map((client, index) => (
+              <div key={`first-${index}`} className={styles.logoItem}>
+                <div className={styles.logoPlaceholder}>
+                  <img
+                    src={client.logo}
+                    alt={`logo`}
+                    className={styles.logoImage}
+                  />
+                  <div className={styles.logoGlow}></div>
+                </div>
+              </div>
+            ))}
+
+            {/* Duplicate set for seamless loop */}
+            {clientLogos.map((client, index) => (
+              <div key={`second-${index}`} className={styles.logoItem}>
+                <div className={styles.logoPlaceholder}>
+                  <img
+                    src={client.logo}
+                    alt={`logo`}
+                    className={styles.logoImage}
+                  />
+                  <div className={styles.logoGlow}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.gradientOverlay}>
+          <div className={styles.gradientLeft}></div>
+          <div className={styles.gradientRight}></div>
+        </div>
+      </div>
     </section>
   );
 };

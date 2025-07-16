@@ -1,87 +1,140 @@
-import React from 'react';
-import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
+
+"use client"
+import React from 'react'
 import styles from '@/styles/landingpage/Testimonials.module.scss'
+import { CircularTestimonials } from '@/components/ui/circular-testimonials'
+import GsapFadeIn from '@/components/animations/GsapFadeIn'
 
 const testimonials = [
   {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-    name: "Briana Patton",
-    role: "Operations Manager",
+    quote: "MK Tech's strategy sessions reshaped our digital roadmap. Their insights were sharp and deeply practical.",
+    name: "Arjun Mehta",
+    designation: "Chief Technology Officer at NetAxis",
+    src: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    name: "Bilal Ahmed",
-    role: "IT Manager",
+    quote: "They helped us migrate our legacy systems with zero downtime. True professionals with a consult-first mindset.",
+    name: "Priya Nair",
+    designation: "IT Head at FinCore Solutions",
+    src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-    name: "Saman Malik",
-    role: "Customer Support Lead",
+    quote: "From planning to execution, every phase was handled with precision and transparency.",
+    name: "Anil Kapoor",
+    designation: "Project Manager at CloudNest",
+    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    name: "Omar Raza",
-    role: "CEO",
+    quote: "Their UI/UX consulting drastically improved our customer retention metrics. Couldn’t be happier!",
+    name: "Sneha Reddy",
+    designation: "Product Owner at InnoSpark",
+    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
-    name: "Zainab Hussain",
-    role: "Project Manager",
+    quote: "The cloud infrastructure they designed scaled perfectly with our traffic surge.",
+    name: "Rahul Varma",
+    designation: "DevOps Manager at ShopStream",
+    src: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-    name: "Aliza Khan",
-    role: "Business Analyst",
+    quote: "Our cybersecurity posture improved drastically after MK Tech's audit. Very thorough and forward-thinking.",
+    name: "Neha Sharma",
+    designation: "Cybersecurity Lead at GuardNet",
+    src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-    name: "Farhan Siddiqui",
-    role: "Marketing Director",
+    quote: "Working with them felt like having an extended in-house team. Highly collaborative.",
+    name: "Deepak Joshi",
+    designation: "Head of IT at SwiftScale",
+    src: "https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
-    name: "Sana Sheikh",
-    role: "Sales Manager",
+    quote: "Their agile delivery approach helped us go live weeks ahead of schedule.",
+    name: "Tanya Deshmukh",
+    designation: "Scrum Master at AgileCore",
+    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2700&auto=format&fit=crop",
   },
   {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face",
-    name: "Hassan Ali",
-    role: "E-commerce Manager",
+    quote: "We saw an immediate improvement in our backend performance. These guys know their stuff.",
+    name: "Rakesh Menon",
+    designation: "Backend Architect at DevWorks",
+    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2700&auto=format&fit=crop",
+  },
+  {
+    quote: "MK Tech is a rare mix of technical brilliance and client empathy.",
+    name: "Ritika Singh",
+    designation: "Business Analyst at VisionSoft",
+    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2700&auto=format&fit=crop",
+  },
+  {
+    quote: "They tailored a custom ERP solution that streamlined our internal processes overnight.",
+    name: "Siddharth Rao",
+    designation: "Operations Head at CoreAxis",
+    src: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=2700&auto=format&fit=crop",
+  },
+  {
+    quote: "We saved time, money, and avoided common pitfalls thanks to their consulting expertise.",
+    name: "Meera Jain",
+    designation: "Co-Founder at ScaleNow",
+    src: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=2700&auto=format&fit=crop",
+  },
+  {
+    quote: "Their approach to API integrations saved us weeks of development effort.",
+    name: "Ananya Kulkarni",
+    designation: "Software Lead at CodeDesk",
+    src: "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=2700&auto=format&fit=crop",
+  },
+  {
+    quote: "We rely on MK Tech for every big tech decision. Their team is that good.",
+    name: "Karan Oberoi",
+    designation: "VP Engineering at VertexWave",
+    src: "https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=2700&auto=format&fit=crop",
+  },
+  {
+    quote: "All timelines were met, and the project was well-documented. It made handovers easy for us.",
+    name: "Shruti Pandey",
+    designation: "QA Manager at SoftSpark",
+    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2700&auto=format&fit=crop",
+  },
+  {
+    quote: "Their team went above and beyond to ensure everything aligned with our compliance needs.",
+    name: "Divya Rao",
+    designation: "Compliance Officer at LegalTechy",
+    src: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2700&auto=format&fit=crop",
   },
 ];
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
 
 const Testimonials = () => {
   return (
-    <section className={`${styles.testimonialContainer} my-20 relative`} style={{ minHeight: '100vh', background: 'var(--black)' }}>
-      <div className="container z-10 mx-auto px-4">
-        <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto">
-
-          <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-tighter mt-5 text-white">
-            What our <span className="textGradient clash">Users say</span>
-          </h2>
+    <div className={styles.testimonialContainer}>
+      <GsapFadeIn effect="slide-up" duration={1} delay={0.2}>
+        <h2>What our <span className='textGradient clash'>clients say</span></h2>
+      </GsapFadeIn>
+      
+      <GsapFadeIn effect="fade" duration={1.2} delay={0.4}>
+        <div className={`${styles.cardsContainer} flex items-center justify-center mt-8`} >
+          <CircularTestimonials
+            testimonials={testimonials}
+            autoplay={true}
+            colors={{
+              name: "#f7f7ff",
+              designation: "#e1e1e1",
+              testimony: "#f1f1f7",
+              arrowBackground: "#0582CA",
+              arrowForeground: "#141414",
+              arrowHoverBackground: "#f7f7ff",
+            }}
+            fontSizes={{
+              name: "28px",
+              designation: "20px",
+              quote: "20px",
+            }}
+          />
         </div>
+      </GsapFadeIn>
+    </div>
+  )
+}
 
-        <div className="flex justify-center gap-6 mt-10 mb-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Testimonials;
+export default Testimonials

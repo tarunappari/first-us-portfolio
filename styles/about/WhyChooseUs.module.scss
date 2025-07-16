@@ -108,11 +108,7 @@
 
 // Primary Card (Customer Excellence) - Professional Blue
 .primary {
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.04) 0%,
-    rgba(255, 255, 255, 0.03) 100%
-  );
+  background:#460073;
   border: 1px solid rgba(59, 130, 246, 0.12);
   
   &:hover {
@@ -161,11 +157,7 @@
 
 // Secondary Card (Solutions That Scale) - Professional Emerald
 .secondary {
-  background: linear-gradient(
-    135deg,
-    rgba(16, 185, 129, 0.04) 0%,
-    rgba(255, 255, 255, 0.03) 100%
-  );
+  background: #0041f0;
   border: 1px solid rgba(16, 185, 129, 0.12);
 
   &:hover {
@@ -214,11 +206,7 @@
 
 // Accent Card (Expertise and Purpose) - Professional Indigo
 .accent {
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.04) 0%,
-    rgba(255, 255, 255, 0.03) 100%
-  );
+  background: #e2062e;
   border: 1px solid rgba(99, 102, 241, 0.12);
 
   &:hover {
@@ -328,10 +316,10 @@
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 1rem 0;
-  background: linear-gradient(135deg, #ffffff 0%, #00a8cc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  // background: linear-gradient(135deg, #ffffff 0%, #00a8cc 100%);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // background-clip: text;
 }
 
 .cardDescription {

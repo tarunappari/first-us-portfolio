@@ -1,0 +1,130 @@
+.container {
+  position: relative;
+  height: 200vh;
+}
+
+.stickyWrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+// Image positioning styles
+.image1 {
+  position: relative;
+  width: 25vw;
+  height: 25vh;
+}
+
+.image2 {
+  position: relative;
+  width: 35vw;
+  height: 30vh;
+  top: -30vh;
+  left: 5vw;
+}
+
+.image3 {
+  position: relative;
+  width: 20vw;
+  height: 55vh;
+  top: -15vh;
+  left: -25vw;
+}
+
+.image4 {
+  position: relative;
+  width: 25vw;
+  height: 25vh;
+  left: 27.5vw;
+}
+
+.image5 {
+  position: relative;
+  width: 20vw;
+  height: 30vh;
+  top: 30vh;
+  left: 5vw;
+}
+
+.image6 {
+  position: relative;
+  width: 30vw;
+  height: 25vh;
+  top: 27.5vh;
+  left: -22.5vw;
+}
+
+.image7 {
+  position: relative;
+  width: 15vw;
+  height: 15vh;
+  top: 22.5vh;
+  left: 25vw;
+}
+
+.contentSection {
+  min-width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.heading {
+  color: var(--white, #ffffff);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  font-family: var(--font-geist-sans);
+  width: 70%;
+  
+  @media (min-width: 768px) {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .image1, .image2, .image3, .image4, .image5, .image6, .image7 {
+    width: 40vw;
+    height: 30vh;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  
+  .contentSection {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image1, .image2, .image3, .image4, .image5, .image6, .image7 {
+    width: 50vw;
+    height: 25vh;
+  }
+}

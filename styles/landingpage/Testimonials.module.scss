@@ -1,13 +1,17 @@
-.testimonialContainer {
-  margin-bottom: 8rem;
-  h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 2rem 0;
+.testimonialContainer{
 
-    span {
-      letter-spacing: 0.1rem;
-      padding-left: 0.25rem;
-    }
+  margin: 2rem 0;
+  h2{
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  h3,p{
+    text-align: start;
+  }
+
+  .cardsContainer{
+    margin: 6rem 0;
   }
 }

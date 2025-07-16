@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -51,7 +50,7 @@ const WhyChooseUs = () => {
   const trustFeatures = [
     {
       iconType: "shield",
-      title: "Driven by Customer Excellence",
+      title: "We transform possibilities through innovation and human creativity.",
       description:
         "Our commitment extends beyond transactions. By measuring customer satisfaction across 10 key areas, we fine-tune our approach to create lasting impact.",
       highlight: "98% Client Satisfaction",
@@ -157,6 +156,15 @@ const WhyChooseUs = () => {
                   </span>
                 </div>
               </div>
+              {/* <div style={{ width: 300, height: 300 }}>
+                <Player
+                  src="/assets/lottie/lines.lottie"
+                  background="transparent"
+                  speed={1}
+                  loop
+                  autoplay
+                />
+              </div> */}
 
               <div className={styles.cardGlow}></div>
             </div>
