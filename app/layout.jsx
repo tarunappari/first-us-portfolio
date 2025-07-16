@@ -4,6 +4,7 @@ import SmoothScroll from "@/components/animations/SmoothScroll";
 import CriticalResourceLoader from "@/components/common/CriticalResourceLoader";
 import WebVitalsMonitor from "@/components/common/WebVitalsMonitor";
 import ServiceWorkerRegistration from "@/components/common/ServiceWorkerRegistration";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
         <ServiceWorkerRegistration />
         <CriticalResourceLoader />
         <WebVitalsMonitor />
+        <SpeedInsights />
         <SmoothScroll />
         {children}
       </body>
