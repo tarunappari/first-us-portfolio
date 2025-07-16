@@ -1,53 +1,70 @@
 "use client";
 import { useEffect } from "react";
-import Lenis from 'lenis';
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll() {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
-    });
+    let lenis, gsap, ScrollTrigger;
 
-    // 🔁 Sync Lenis with GSAP
-    function raf(time) {
-      lenis.raf(time);
+    const initSmoothScroll = async () => {
+      // Dynamic imports for better performance
+      const [lenisModule, gsapModule, scrollTriggerModule] = await Promise.all([
+        import('lenis'),
+        import('gsap'),
+        import('gsap/ScrollTrigger')
+      ]);
+
+      lenis = lenisModule.default;
+      gsap = gsapModule.gsap;
+      ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const lenisInstance = new lenis({
+        duration: 1.2,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+
+      // 🔁 Sync Lenis with GSAP
+      function raf(time) {
+        lenisInstance.raf(time);
+        requestAnimationFrame(raf);
+      }
       requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
 
-    // 🔌 Tell ScrollTrigger to use Lenis scroll
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        return value !== undefined ? lenis.scrollTo(value) : window.scrollY;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-      pinType: document.body.style.transform ? "transform" : "fixed",
-    });
+      // 🔌 Tell ScrollTrigger to use Lenis scroll
+      ScrollTrigger.scrollerProxy(document.body, {
+        scrollTop(value) {
+          return value !== undefined ? lenisInstance.scrollTo(value) : window.scrollY;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+        },
+        pinType: document.body.style.transform ? "transform" : "fixed",
+      });
 
-    // Fix: Use lenis.on("scroll") instead of lenis.update
-    ScrollTrigger.addEventListener("refresh", () => {
-      lenis.resize(); // Use resize() instead of update()
-    });
-    
-    ScrollTrigger.refresh();
+      // Fix: Use lenis.on("scroll") instead of lenis.update
+      ScrollTrigger.addEventListener("refresh", () => {
+        lenisInstance.resize(); // Use resize() instead of update()
+      });
 
-    return () => {
-      lenis.destroy();
-      ScrollTrigger.kill();
+      ScrollTrigger.refresh();
+
+      return () => {
+        lenisInstance.destroy();
+        ScrollTrigger.kill();
+      };
     };
+
+    // Only initialize on client side
+    if (typeof window !== 'undefined') {
+      initSmoothScroll();
+    }
   }, []);
 
   return null;

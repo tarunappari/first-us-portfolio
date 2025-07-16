@@ -1,39 +1,45 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import Lottie from "lottie-react";
 import styles from "@/styles/common/AccentureCard.module.scss";
+
+// Lazy load GSAP
+let gsap;
 
 const AccentureCard = ({
   title,
   description,
-  lottieData,
   pattern = "pattern1", // pattern1, pattern2, or pattern3
   colorTheme = "red", // red, blue, or purple
   className = "",
   ...props
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const lottieRef = useRef();
   const cardRef = useRef();
   const titleRef = useRef();
   const descriptionRef = useRef();
   const backgroundLinesRef = useRef();
 
   useEffect(() => {
-    if (lottieRef.current) {
-      if (isHovered) {
-        lottieRef.current.play();
-      } else {
-        lottieRef.current.pause();
+    // Load GSAP dynamically
+    const loadGSAP = async () => {
+      if (!gsap) {
+        const gsapModule = await import('gsap');
+        gsap = gsapModule.gsap;
       }
-    }
-  }, [isHovered]);
+    };
+    loadGSAP();
+  }, []);
+
+
 
   // GSAP hover animations
-  const handleMouseEnter = () => {
+  const handleMouseEnter = async () => {
     setIsHovered(true);
+
+    if (!gsap) {
+      const gsapModule = await import('gsap');
+      gsap = gsapModule.gsap;
+    }
 
     // Card lift animation
     gsap.to(cardRef.current, {
@@ -91,8 +97,13 @@ const AccentureCard = ({
     }
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = async () => {
     setIsHovered(false);
+
+    if (!gsap) {
+      const gsapModule = await import('gsap');
+      gsap = gsapModule.gsap;
+    }
 
     // Card return animation
     gsap.to(cardRef.current, {

@@ -2,31 +2,53 @@
 import { useRef } from "react";
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import styles from "@/styles/landingpage/ImageScroll.module.scss";
 import { LampContainer } from "../ui/lampLight";
 
-// Constants
+// Constants - Optimized image URLs with smaller sizes
 const DEFAULT_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+    src: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
+    alt: "Modern office workspace with technology",
+    width: 1200,
+    height: 800,
   },
   {
-    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
+    alt: "Developer coding on computer",
+    width: 1200,
+    height: 800,
   },
   {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
+    alt: "AI and machine learning technology",
+    width: 1200,
+    height: 800,
   },
   {
-    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0",
+    alt: "Team collaboration in tech environment",
+    width: 1200,
+    height: 800,
   },
   {
-    src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+    src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
+    alt: "Business meeting and strategy",
+    width: 1200,
+    height: 800,
   },
   {
-    src: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+    src: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
+    alt: "Cybersecurity and data protection",
+    width: 1200,
+    height: 800,
   },
   {
-    src: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3",
+    src: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3",
+    alt: "Cloud infrastructure and servers",
+    width: 1200,
+    height: 800,
   },
 ];
 
@@ -60,17 +82,25 @@ const ImageScroll = ({ images = DEFAULT_IMAGES, className = "" }) => {
     <div ref={container} className={`${styles.container} ${className}`}>
       <div className={styles.stickyWrapper}>
         {/* Zooming Images */}
-        {pictures.map(({ src, scale }, index) => (
+        {pictures.map(({ src, scale, alt, width, height }, index) => (
           <motion.div
             key={index}
             style={{ scale, opacity: opacityImage }}
             className={styles.imageWrapper}
           >
             <div className={styles[`image${index + 1}`]}>
-              <img
+              <Image
                 src={src}
-                alt={`Technology showcase ${index + 1}`}
+                alt={alt}
+                width={width}
+                height={height}
                 className={styles.image}
+                priority={index < 3} // Prioritize first 3 images
+                loading={index < 3 ? "eager" : "lazy"}
+                quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
             </div>
           </motion.div>

@@ -1,9 +1,20 @@
 "use client"
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import styles from '@/styles/landingpage/HeroSection.module.scss'
-import { SplineSceneBasic } from '../ui/spline-demo';
 import { ContainerTextFlip } from '../ui/container-text-flip';
 import GsapFadeIn from '@/components/animations/GsapFadeIn';
+
+// Lazy load heavy 3D component
+const SplineSceneBasic = lazy(() => import('../ui/spline-demo').then(module => ({ default: module.SplineSceneBasic })));
+
+// Loading placeholder for Spline
+const SplineLoader = () => (
+  <div className={styles.splineLoader}>
+    <div className="animate-pulse bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg w-full h-full flex items-center justify-center">
+      <div className="text-white/60">Loading 3D Scene...</div>
+    </div>
+  </div>
+);
 
 
 
@@ -45,7 +56,9 @@ const HeroSection = () => {
             </div>
 
             <div className={styles.rightContainer}>
-                <SplineSceneBasic />
+                <Suspense fallback={<SplineLoader />}>
+                    <SplineSceneBasic />
+                </Suspense>
             </div>
         </div>
     )

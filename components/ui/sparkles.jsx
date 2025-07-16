@@ -1,10 +1,11 @@
-"use client";;
+"use client";
 import React, { useId } from "react";
 import { useEffect, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "framer-motion";
+
+// Dynamic imports for better performance
+let Particles, initParticlesEngine, loadSlim;
 
 export const SparklesCore = (props) => {
   const {
@@ -19,11 +20,30 @@ export const SparklesCore = (props) => {
   } = props;
   const [init, setInit] = useState(false);
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    const loadParticles = async () => {
+      try {
+        // Dynamic imports
+        const [particlesModule, slimModule] = await Promise.all([
+          import("@tsparticles/react"),
+          import("@tsparticles/slim")
+        ]);
+
+        Particles = particlesModule.default;
+        initParticlesEngine = particlesModule.initParticlesEngine;
+        loadSlim = slimModule.loadSlim;
+
+        await initParticlesEngine(async (engine) => {
+          await loadSlim(engine);
+        });
+
+        setInit(true);
+      } catch (error) {
+        console.warn('Failed to load particles:', error);
+        setInit(false);
+      }
+    };
+
+    loadParticles();
   }, []);
   const controls = useAnimation();
 

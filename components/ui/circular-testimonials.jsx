@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 function calculateGap(width) {
   const minWidth = 1024;
@@ -154,13 +155,17 @@ export const CircularTestimonials = ({
         {/* Images */}
         <div className="image-container" ref={imageContainerRef}>
           {testimonials.map((testimonial, index) => (
-            <img
+            <Image
               key={index}
               src={testimonial.src}
               alt={testimonial.name}
+              width={80}
+              height={80}
               className="testimonial-image"
               data-index={index}
               style={getImageStyle(index)}
+              loading="lazy"
+              quality={60}
             />
           ))}
         </div>

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 export const TestimonialsColumn = (props) => {
   const { className, testimonials, duration = 10 } = props;
@@ -22,12 +23,14 @@ export const TestimonialsColumn = (props) => {
                 <div className="p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg shadow-black/20 max-w-xs w-full" key={i}>
                   <div className="text-white/90 text-sm leading-relaxed">{text}</div>
                   <div className="flex items-center gap-2 mt-5">
-                    <img
+                    <Image
                       width={40}
                       height={40}
                       src={image}
                       alt={name}
                       className="h-10 w-10 rounded-full object-cover"
+                      loading="lazy"
+                      quality={60}
                     />
                     <div className="flex flex-col">
                       <div className="font-medium tracking-tight leading-5 text-white">{name}</div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 import styles from "@/styles/landingpage/ClientLogos.module.scss";
 
 const ClientLogos = () => {
@@ -95,10 +96,14 @@ const ClientLogos = () => {
             {clientLogos.map((client, index) => (
               <div key={`first-${index}`} className={styles.logoItem}>
                 <div className={styles.logoPlaceholder}>
-                  <img
+                  <Image
                     src={client.logo}
-                    alt={`logo`}
+                    alt={`${client.name} logo`}
+                    width={120}
+                    height={60}
                     className={styles.logoImage}
+                    loading="lazy"
+                    quality={60}
                   />
                   <div className={styles.logoGlow}></div>
                 </div>
@@ -109,10 +114,14 @@ const ClientLogos = () => {
             {clientLogos.map((client, index) => (
               <div key={`second-${index}`} className={styles.logoItem}>
                 <div className={styles.logoPlaceholder}>
-                  <img
+                  <Image
                     src={client.logo}
-                    alt={`logo`}
+                    alt={`${client.name} logo`}
+                    width={120}
+                    height={60}
                     className={styles.logoImage}
+                    loading="lazy"
+                    quality={60}
                   />
                   <div className={styles.logoGlow}></div>
                 </div>
