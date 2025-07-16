@@ -1,17 +1,28 @@
-.testimonialContainer{
-
-  margin: 2rem 0;
-  h2{
+.testimonialContainer {
+  padding: 2rem 0;
+  margin: 1rem 0;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/assets/bg/bg1.jpg") center/cover no-repeat fixed
+      border-box;
+    filter: blur(5px);
+    z-index: -9;
+  }
+  h2 {
     font-size: 3rem;
     font-weight: 600;
     text-align: center;
   }
 
-  h3,p{
+  h3,
+  p {
     text-align: start;
   }
 
-  .cardsContainer{
+  .cardsContainer {
     margin: 6rem 0;
   }
 }

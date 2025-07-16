@@ -201,21 +201,6 @@ const AccentureCard = ({
           )}
         </div>
 
-        {/* Lottie Animation Background */}
-        <div className={styles.lottieBackground}>
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={lottieData}
-            loop={true}
-            autoplay={false}
-            style={{
-              width: "100%",
-              height: "100%",
-              opacity: isHovered ? 0.1 : 0.05,
-            }}
-          />
-        </div>
-
         {/* Content Container */}
         <div className={styles.content}>
           {/* Title Animation */}
@@ -232,17 +217,11 @@ const AccentureCard = ({
             style={{ opacity: 0 }}
           >
             <p className={styles.description}>{description}</p>
+            <button>
+              <a href="/services">EXPLORE MORE</a>
+            </button>
           </div>
         </div>
-
-        {/* Hover Glow Effect */}
-        <motion.div
-          className={styles.glowEffect}
-          animate={{
-            opacity: isHovered ? 1 : 0,
-          }}
-          transition={{ duration: 0.3 }}
-        />
       </div>
     </div>
   );

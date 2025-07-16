@@ -16,7 +16,8 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url("/assets/bg/bg2.png") center/cover no-repeat fixed;
+    background: url("/assets/bg/bg1.jpg") center/cover no-repeat fixed
+      border-box;
     filter: blur(3px);
     z-index: -9;
   }
@@ -29,7 +30,6 @@
     span {
       font-size: 2.5rem;
       font-weight: 600;
-      
     }
   }
 

@@ -1,18 +1,24 @@
-
-.infoContainer{
+.infoContainer {
   margin: 5rem auto;
   background: radial-gradient(
-      circle at center,
-      rgba(0, 69, 84, 0.5) -10%,
-      rgba(5, 5, 5) 40%
-    );
+    circle at center,
+    rgba(0, 69, 84, 0.5) -10%,
+    rgba(5, 5, 5) 40%
+  );
 }
 
-.cardTitle{
+.infoContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
   color: var(--white);
   font-size: 1.5rem;
 }
 
-.description{
+.description {
   font-size: 1rem;
 }

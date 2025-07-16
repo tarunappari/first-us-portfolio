@@ -89,8 +89,8 @@ const OverlayCopy = ({ subheading, heading }) => {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [5050, -2450]);
-  const opacity = useTransform(scrollYProgress, [1, 1, 1], [0, 1, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [5050, -2350]); // Slower movement
+  const opacity = useTransform(scrollYProgress, [1,1,1], [1,1,1]); // Cards appear in middle, fade out at end
 
   return (
     <motion.div
@@ -110,7 +110,6 @@ const OverlayCopy = ({ subheading, heading }) => {
               description={card.description}
               pattern={card.pattern}
               colorTheme={card.colorTheme}
-              // lottieData={sampleLottieData}
             />
           ))}
         </div>

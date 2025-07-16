@@ -4,8 +4,9 @@
   grid-template-columns: 60% 40%;
   align-items: center;
   min-height: 100vh;
+  max-width: 99vw;
   background: linear-gradient(135deg, #0a0a0a 0%, #020204 50%, #03050a 100%);
-  overflow: hidden;
+  overflow-x: hidden;
 
   // &::before {
   //   content: "";
