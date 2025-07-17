@@ -1,140 +1,171 @@
-
 "use client"
 import React from 'react'
-import styles from '@/styles/landingpage/Testimonials.module.scss'
-import { CircularTestimonials } from '@/components/ui/circular-testimonials'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 import GsapFadeIn from '@/components/animations/GsapFadeIn'
 
+// IT Consultancy testimonials with professional Unsplash images
 const testimonials = [
   {
-    quote: "MK Tech's strategy sessions reshaped our digital roadmap. Their insights were sharp and deeply practical.",
+    text: "First Us transformed our entire digital infrastructure. Their cloud migration strategy reduced our operational costs by 60% while improving system performance dramatically.",
+    image: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=150&h=150&fit=crop&crop=face",
     name: "Arjun Mehta",
-    designation: "Chief Technology Officer at NetAxis",
-    src: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=2700&auto=format&fit=crop",
+    role: "Chief Technology Officer",
   },
   {
-    quote: "They helped us migrate our legacy systems with zero downtime. True professionals with a consult-first mindset.",
+    text: "The cybersecurity audit and implementation was flawless. Their proactive approach to security has given us complete peace of mind and regulatory compliance.",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=150&h=150&fit=crop&crop=face",
     name: "Priya Nair",
-    designation: "IT Head at FinCore Solutions",
-    src: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2700&auto=format&fit=crop",
+    role: "IT Security Director",
   },
   {
-    quote: "From planning to execution, every phase was handled with precision and transparency.",
-    name: "Anil Kapoor",
-    designation: "Project Manager at CloudNest",
-    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2700&auto=format&fit=crop",
+    text: "Custom software development that perfectly understood our complex requirements. The solution has improved our workflow efficiency by 300%.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    name: "Rajesh Kumar",
+    role: "DevOps Lead",
   },
   {
-    quote: "Their UI/UX consulting drastically improved our customer retention metrics. Couldn’t be happier!",
-    name: "Sneha Reddy",
-    designation: "Product Owner at InnoSpark",
-    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2700&auto=format&fit=crop",
+    text: "AI integration that actually works. First Us didn't just implement technology, they transformed our business processes and decision-making capabilities.",
+    image: "https://images.unsplash.com/photo-1644028744915-cbf3b2c1a175?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Maya Patel",
+    role: "CEO",
   },
   {
-    quote: "The cloud infrastructure they designed scaled perfectly with our traffic surge.",
-    name: "Rahul Varma",
-    designation: "DevOps Manager at ShopStream",
-    src: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2700&auto=format&fit=crop",
+    text: "Zero downtime migration of our legacy systems. The team's professionalism and attention to detail exceeded all expectations. Truly exceptional service.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    name: "Vikram Singh",
+    role: "CISO",
   },
   {
-    quote: "Our cybersecurity posture improved drastically after MK Tech's audit. Very thorough and forward-thinking.",
-    name: "Neha Sharma",
-    designation: "Cybersecurity Lead at GuardNet",
-    src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=2700&auto=format&fit=crop",
+    text: "Their DevOps implementation reduced our deployment time by 80%. The automation and monitoring solutions have been game-changing for our operations.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    name: "Anita Sharma",
+    role: "Engineering Manager",
   },
   {
-    quote: "Working with them felt like having an extended in-house team. Highly collaborative.",
-    name: "Deepak Joshi",
-    designation: "Head of IT at SwiftScale",
-    src: "https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=2700&auto=format&fit=crop",
+    text: "Data analytics platform they built gives us insights we never had before. The real-time dashboards have revolutionized our decision-making process.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    name: "Rohit Gupta",
+    role: "Data Science Head",
   },
   {
-    quote: "Their agile delivery approach helped us go live weeks ahead of schedule.",
-    name: "Tanya Deshmukh",
-    designation: "Scrum Master at AgileCore",
-    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2700&auto=format&fit=crop",
+    text: "Mobile app development was professional and timely. User feedback has been overwhelmingly positive, and our customer engagement has increased significantly.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    name: "Kavya Iyer",
+    role: "Product Manager",
   },
   {
-    quote: "We saw an immediate improvement in our backend performance. These guys know their stuff.",
-    name: "Rakesh Menon",
-    designation: "Backend Architect at DevWorks",
-    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2700&auto=format&fit=crop",
-  },
-  {
-    quote: "MK Tech is a rare mix of technical brilliance and client empathy.",
-    name: "Ritika Singh",
-    designation: "Business Analyst at VisionSoft",
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2700&auto=format&fit=crop",
-  },
-  {
-    quote: "They tailored a custom ERP solution that streamlined our internal processes overnight.",
-    name: "Siddharth Rao",
-    designation: "Operations Head at CoreAxis",
-    src: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=2700&auto=format&fit=crop",
-  },
-  {
-    quote: "We saved time, money, and avoided common pitfalls thanks to their consulting expertise.",
-    name: "Meera Jain",
-    designation: "Co-Founder at ScaleNow",
-    src: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=2700&auto=format&fit=crop",
-  },
-  {
-    quote: "Their approach to API integrations saved us weeks of development effort.",
-    name: "Ananya Kulkarni",
-    designation: "Software Lead at CodeDesk",
-    src: "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=2700&auto=format&fit=crop",
-  },
-  {
-    quote: "We rely on MK Tech for every big tech decision. Their team is that good.",
-    name: "Karan Oberoi",
-    designation: "VP Engineering at VertexWave",
-    src: "https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=2700&auto=format&fit=crop",
-  },
-  {
-    quote: "All timelines were met, and the project was well-documented. It made handovers easy for us.",
-    name: "Shruti Pandey",
-    designation: "QA Manager at SoftSpark",
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2700&auto=format&fit=crop",
-  },
-  {
-    quote: "Their team went above and beyond to ensure everything aligned with our compliance needs.",
-    name: "Divya Rao",
-    designation: "Compliance Officer at LegalTechy",
-    src: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2700&auto=format&fit=crop",
+    text: "Their IT consulting helped us scale from startup to enterprise. The strategic guidance and technical expertise have been invaluable to our growth.",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face",
+    name: "Suresh Reddy",
+    role: "Founder & CTO",
   },
 ];
 
+// TestimonialsColumn component adapted for JSX and your brand
+const TestimonialsColumn = ({ className, testimonials, duration = 10 }) => {
+  return (
+    <div className={className}>
+      <motion.div
+        animate={{
+          translateY: "-50%",
+        }}
+        transition={{
+          duration: duration,
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "loop",
+        }}
+        className="flex flex-col gap-6 pb-6"
+      >
+        {[
+          ...new Array(2).fill(0).map((_, index) => (
+            <React.Fragment key={index}>
+              {testimonials.map(({ text, image, name, role }, i) => (
+                <div
+                  className="p-8 rounded-3xl border border-[#00a8cc]/20 bg-gradient-to-br from-[#0a0a0a]/90 to-[#1a1a1a]/90 backdrop-blur-xl shadow-2xl shadow-[#00a8cc]/10 max-w-xs w-full hover:border-[#00a8cc]/40 transition-all duration-300"
+                  key={i}
+                >
+                  <div className="text-white/90 text-sm leading-relaxed font-manrope mb-6">
+                    "{text}"
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="relative">
+                      <Image
+                        width={48}
+                        height={48}
+                        src={image}
+                        alt={name}
+                        className="h-12 w-12 rounded-full object-cover border-2 border-[#00a8cc]/30"
+                      />
+                      <div className="absolute -bottom-1 -right-1 bg-[#00a8cc] rounded-full p-1">
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="font-semibold tracking-tight leading-5 text-white font-satoshi">{name}</div>
+                      <div className="leading-5 text-[#00a8cc] tracking-tight text-sm font-medium">{role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </React.Fragment>
+          )),
+        ]}
+      </motion.div>
+    </div>
+  );
+};
+
+// Split testimonials into columns
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
 
 const Testimonials = () => {
   return (
-    <div className={styles.testimonialContainer}>
-      <GsapFadeIn effect="slide-up" duration={1} delay={0.2}>
-        <h2>What our <span className='textGradient clash'>clients say</span></h2>
-      </GsapFadeIn>
-      
-      <GsapFadeIn effect="fade" duration={1.2} delay={0.4}>
-        <div className={`${styles.cardsContainer} flex items-center justify-center mt-8`} >
-          <CircularTestimonials
-            testimonials={testimonials}
-            autoplay={true}
-            colors={{
-              name: "#f7f7ff",
-              designation: "#e1e1e1",
-              testimony: "#f1f1f7",
-              arrowBackground: "#0582CA",
-              arrowForeground: "#141414",
-              arrowHoverBackground: "#f7f7ff",
-            }}
-            fontSizes={{
-              name: "28px",
-              designation: "20px",
-              quote: "20px",
-            }}
-          />
-        </div>
-      </GsapFadeIn>
-    </div>
-  )
-}
+    <section className="py-20 my-20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00a8cc]/5 to-transparent"></div>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-[#00a8cc]/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#0077be]/10 rounded-full blur-3xl"></div>
 
-export default Testimonials
+      <div className="container z-10 mx-auto px-4 relative">
+        {/* Header */}
+        <GsapFadeIn effect="slide-up" duration={1} delay={0.2}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center justify-center max-w-[640px] mx-auto mb-16"
+          >
+            <div className="flex justify-center mb-6">
+              <div className="border border-[#00a8cc]/30 bg-[#00a8cc]/10 py-2 px-6 rounded-full">
+                <span className="text-[#00a8cc] font-mono text-sm uppercase tracking-wider">Client Testimonials</span>
+              </div>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white text-center font-clash">
+              What our <span className="bg-gradient-to-r from-[#00a8cc] to-[#0077be] bg-clip-text text-transparent">clients say</span>
+            </h2>
+            <p className="text-center mt-6 text-white/70 text-lg max-w-2xl font-manrope leading-relaxed">
+              Trusted by leading companies worldwide for exceptional IT solutions and transformative digital experiences.
+            </p>
+          </motion.div>
+        </GsapFadeIn>
+
+        {/* Testimonials Columns */}
+        <GsapFadeIn effect="fade" duration={1.2} delay={0.4}>
+          <div className="flex justify-center gap-6 mt-16 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+            <TestimonialsColumn testimonials={firstColumn} duration={15} />
+            <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
+            <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          </div>
+        </GsapFadeIn>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;

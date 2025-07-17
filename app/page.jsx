@@ -7,6 +7,7 @@ import PerformanceOptimizer from "@/components/animations/PerformanceOptimizer";
 import Services from "@/components/landingpage/Services";
 import { TextParallaxContentExample } from "@/components/common/ScrollTrigger";
 import ImageScroll from "@/components/landingpage/ImageScroll";
+import Testimonials from "@/components/landingpage/Testimonials";
 
 // Loading component
 const SectionLoader = () => (
@@ -24,6 +25,7 @@ export default function Home() {
         <ImageScroll />
         <TextParallaxContentExample />
         <Services />
+        <Testimonials />
         {/* <Suspense fallback={<SectionLoader />}>
           <Services />
         </Suspense> */}

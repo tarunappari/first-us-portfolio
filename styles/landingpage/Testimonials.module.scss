@@ -6,8 +6,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url("/assets/bg/bg1.jpg") center/cover no-repeat fixed
-      border-box;
+    background: url("/assets/bg/bg1.jpg") center/cover no-repeat fixed;
     filter: blur(5px);
     z-index: -9;
   }
@@ -23,6 +22,6 @@
   }
 
   .cardsContainer {
-    margin: 6rem 0;
+    margin: 3rem 5rem;
   }
 }
