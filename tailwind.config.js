@@ -8,9 +8,9 @@ module.exports = {
     theme: {
       extend: {
         fontFamily: {
-          'clash': ['clash', 'sans-serif'],
-          'satoshi': ['Satoshi', 'sans-serif'],
-          'manrope': ['manrope', 'sans-serif'],
+          'clash': ['var(--font-clash)', 'sans-serif'],
+          'satoshi': ['var(--font-satoshi)', 'sans-serif'],
+          'manrope': ['var(--font-manrope)', 'sans-serif'],
         },
         keyframes: {
           "accordion-down": {

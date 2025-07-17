@@ -4,18 +4,9 @@ import { MainNavbar } from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import HeroSection from "@/components/landingpage/HeroSection";
 import PerformanceOptimizer from "@/components/animations/PerformanceOptimizer";
-
-// Dynamic imports for better code splitting
-const ImageScroll = lazy(() => import("@/components/landingpage/ImageScroll"));
-const TextParallaxContentExample = lazy(() =>
-  import("@/components/common/ScrollTrigger").then((module) => ({
-    default: module.TextParallaxContentExample,
-  }))
-);
-const Services = lazy(() => import("@/components/landingpage/Services"));
-const Testimonials = lazy(() =>
-  import("@/components/landingpage/Testimonials")
-);
+import Services from "@/components/landingpage/Services";
+import { TextParallaxContentExample } from "@/components/common/ScrollTrigger";
+import ImageScroll from "@/components/landingpage/ImageScroll";
 
 // Loading component
 const SectionLoader = () => (
@@ -30,16 +21,18 @@ export default function Home() {
       <MainNavbar />
       <PerformanceOptimizer>
         <HeroSection />
+        <ImageScroll />
+        <TextParallaxContentExample />
+        <Services />
+        {/* <Suspense fallback={<SectionLoader />}>
+          <Services />
+        </Suspense> */}
         {/* <Suspense fallback={<SectionLoader />}>
           <InfoGrid />
         </Suspense> */}
-        <Suspense fallback={<SectionLoader />}>
+        {/* <Suspense fallback={<SectionLoader />}>
           <TextParallaxContentExample />
-        </Suspense>
-        <ImageScroll />
-        <Suspense fallback={<SectionLoader />}>
-          <Services />
-        </Suspense>
+        </Suspense> */}
         <Footer />
       </PerformanceOptimizer>
     </div>

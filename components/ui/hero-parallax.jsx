@@ -62,11 +62,12 @@ export const HeroParallax = ({ products }) => {
         className=""
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
+          {firstRow.map((product, index) => (
             <ProductCard
               product={product}
               translate={translateX}
               key={product.title}
+              isPriority={index < 3} // First 3 images get priority loading
             />
           ))}
         </motion.div>
@@ -76,6 +77,7 @@ export const HeroParallax = ({ products }) => {
               product={product}
               translate={translateXReverse}
               key={product.title}
+              isPriority={false}
             />
           ))}
         </motion.div>
@@ -85,6 +87,7 @@ export const HeroParallax = ({ products }) => {
               product={product}
               translate={translateX}
               key={product.title}
+              isPriority={false}
             />
           ))}
         </motion.div>
@@ -108,7 +111,7 @@ export const Header = () => {
   );
 };
 
-export const ProductCard = ({ product, translate }) => {
+export const ProductCard = ({ product, translate, isPriority = false }) => {
   return (
     <motion.div
       style={{
@@ -130,6 +133,8 @@ export const ProductCard = ({ product, translate }) => {
           width="600"
           className="object-cover object-left-top absolute h-full w-full inset-0 rounded-lg"
           alt={product.title}
+          priority={isPriority}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30rem"
         />
       </Link>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none rounded-lg"></div>

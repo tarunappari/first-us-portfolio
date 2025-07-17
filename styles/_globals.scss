@@ -5,29 +5,8 @@
 
 // @custom-variant dark (&:is(.dark *));
 
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi.ttf") format("truetype");
-  font-weight: 400 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "manrope";
-  src: url("/fonts/manrope.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "clash";
-  src: url("/fonts/clash.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
+// Font declarations now handled by next/font/local in layout.jsx
+// Using CSS variables for better performance and consistency
 
 :root {
   --head: rgb(25, 32, 36);
