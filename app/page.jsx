@@ -7,10 +7,15 @@ import PerformanceOptimizer from "@/components/animations/PerformanceOptimizer";
 
 // Dynamic imports for better code splitting
 const ImageScroll = lazy(() => import("@/components/landingpage/ImageScroll"));
-const InfoGrid = lazy(() => import("@/components/landingpage/InfoGrid"));
-const TextParallaxContentExample = lazy(() => import("@/components/common/ScrollTrigger").then(module => ({ default: module.TextParallaxContentExample })));
+const TextParallaxContentExample = lazy(() =>
+  import("@/components/common/ScrollTrigger").then((module) => ({
+    default: module.TextParallaxContentExample,
+  }))
+);
 const Services = lazy(() => import("@/components/landingpage/Services"));
-const Testimonials = lazy(() => import("@/components/landingpage/Testimonials"));
+const Testimonials = lazy(() =>
+  import("@/components/landingpage/Testimonials")
+);
 
 // Loading component
 const SectionLoader = () => (
@@ -21,25 +26,22 @@ const SectionLoader = () => (
 
 export default function Home() {
   return (
-    <PerformanceOptimizer>
+    <div className="relative">
       <MainNavbar />
-      <HeroSection />
-      <Suspense fallback={<SectionLoader />}>
+      <PerformanceOptimizer>
+        <HeroSection />
+        {/* <Suspense fallback={<SectionLoader />}>
+          <InfoGrid />
+        </Suspense> */}
+        <Suspense fallback={<SectionLoader />}>
+          <TextParallaxContentExample />
+        </Suspense>
         <ImageScroll />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <InfoGrid />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <TextParallaxContentExample />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Services />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Testimonials />
-      </Suspense>
-      <Footer />
-    </PerformanceOptimizer>
+        <Suspense fallback={<SectionLoader />}>
+          <Services />
+        </Suspense>
+        <Footer />
+      </PerformanceOptimizer>
+    </div>
   );
 }

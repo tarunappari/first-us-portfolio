@@ -2,7 +2,7 @@
 import React from "react";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 
-// IT Consultancy related products/services with Unsplash images
+// IT Consultancy focused products for demo
 export const itConsultancyProducts = [
   {
     title: "Cloud Infrastructure Solutions",
@@ -16,7 +16,7 @@ export const itConsultancyProducts = [
   },
   {
     title: "AI & Machine Learning Integration",
-    link: "/services",
+    link: "/services", 
     thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=600&fit=crop&crop=center",
   },
   {
@@ -81,12 +81,12 @@ export const itConsultancyProducts = [
   },
 ];
 
-const HeroSection = () => {
+export function HeroParallaxDemo() {
   return (
-    <div className="w-full">
-      <HeroParallax products={itConsultancyProducts} />
+    <div className="min-h-screen w-full">
+      <div className="absolute top-0 left-0 w-full">
+        <HeroParallax products={itConsultancyProducts} />
+      </div>
     </div>
   );
-};
-
-export default HeroSection;
+}

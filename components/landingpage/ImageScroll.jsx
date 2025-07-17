@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import styles from "@/styles/landingpage/ImageScroll.module.scss";
 import { LampContainer } from "../ui/lampLight";
+import InfoGrid from "./InfoGrid";
 
 // Constants - Optimized image URLs with smaller sizes
 const DEFAULT_IMAGES = [
@@ -114,7 +115,8 @@ const ImageScroll = ({ images = DEFAULT_IMAGES, className = "" }) => {
           }}
           className={styles.contentSection}
         >
-          <LampContainer>
+          <InfoGrid />
+          {/* <LampContainer>
             <motion.h1
               initial={{ opacity: 0.5, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -129,7 +131,7 @@ const ImageScroll = ({ images = DEFAULT_IMAGES, className = "" }) => {
                 that drive growth, efficiency, and competitive advantage in the
                 digital age.
             </motion.h1>
-          </LampContainer>
+          </LampContainer> */}
         </motion.div>
       </div>
     </div>
