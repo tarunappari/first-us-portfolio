@@ -44,16 +44,15 @@
 //                 <div className={styles.dataStream}></div>
 //             </div>
 
-//             <div className={styles.content}>
-//                 <GsapFadeIn effect="slide-left" duration={1} delay={0.2}>
-//                     <h1><span className='textGradient'>Empowering</span>  Your Business with </h1>
-//                 </GsapFadeIn>
-//                 <ContainerTextFlip />
-//                 <GsapFadeIn effect="slide-left" duration={1} delay={0.5}>
-//                     <p>Empowering business growth through strategic IT solutions.</p>
-//                 </GsapFadeIn>
-
-//             </div>
+            // <div className={styles.content}>
+            //     <GsapFadeIn effect="slide-left" duration={1} delay={0.2}>
+            //         <h1><span className='textGradient'>Empowering</span>  Your Business with </h1>
+            //     </GsapFadeIn>
+            //     <ContainerTextFlip />
+            //     <GsapFadeIn effect="slide-left" duration={1} delay={0.5}>
+            //         <p>Empowering business growth through strategic IT solutions.</p>
+            //     </GsapFadeIn>
+            // </div>
 
 //             <div className={styles.rightContainer}>
 //                 <Suspense fallback={<SplineLoader />}>

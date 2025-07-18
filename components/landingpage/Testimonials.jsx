@@ -140,18 +140,12 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center justify-center max-w-[640px] mx-auto mb-16"
           >
-            <div className="flex justify-center mb-6">
-              <div className="border border-[#00a8cc]/30 bg-[#00a8cc]/10 py-2 px-6 rounded-full">
-                <span className="text-[#00a8cc] font-mono text-sm uppercase tracking-wider">Client Testimonials</span>
-              </div>
-            </div>
-
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white text-center font-clash">
-              What our <span className="bg-gradient-to-r from-[#00a8cc] to-[#0077be] bg-clip-text text-transparent">clients say</span>
+              What our <span className="bg-gradient-to-r from-[#00a8cc] to-[#0077be] bg-clip-text text-transparent textGradient">clients say</span>
             </h2>
-            <p className="text-center mt-6 text-white/70 text-lg max-w-2xl font-manrope leading-relaxed">
+            {/* <p className="text-center mt-6 text-white/70 text-lg max-w-2xl font-manrope leading-relaxed">
               Trusted by leading companies worldwide for exceptional IT solutions and transformative digital experiences.
-            </p>
+            </p> */}
           </motion.div>
         </GsapFadeIn>
 

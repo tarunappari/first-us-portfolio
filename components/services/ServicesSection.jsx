@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import styles from '@/styles/services/ServicesSection.module.scss'
 import GsapFadeIn from '@/components/animations/GsapFadeIn'
 
@@ -17,42 +18,42 @@ const ServicesSection = () => {
       title: 'Cloud Infrastructure',
       description: 'Scalable cloud solutions with enterprise-grade security, automated deployment, and 99.9% uptime guarantee.',
       features: ['AWS/Azure/GCP', 'Auto-scaling', 'Load Balancing', '24/7 Monitoring'],
-      icon: '☁️'
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&crop=center'
     },
     {
       id: 'custom-software',
       title: 'Custom Software Development',
       description: 'Full-stack web and mobile applications built with cutting-edge technologies and modern frameworks.',
       features: ['React/Next.js', 'Mobile Apps', 'API Development', 'Database Design'],
-      icon: '💻'
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop&crop=center'
     },
     {
       id: 'cybersecurity',
       title: 'Cybersecurity & Compliance',
       description: 'Comprehensive security solutions protecting your digital assets with advanced threat detection.',
       features: ['Threat Detection', 'Compliance Audit', 'Security Training', 'Incident Response'],
-      icon: '🛡️'
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop&crop=center'
     },
     {
       id: 'ai-automation',
       title: 'AI & Automation',
       description: 'Intelligent automation solutions leveraging machine learning to optimize business processes.',
       features: ['ML Models', 'Process Automation', 'Data Analytics', 'AI Integration'],
-      icon: '🤖'
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop&crop=center'
     },
     {
       id: 'it-staffing',
       title: 'IT Staffing Solutions',
       description: 'Expert IT professionals and dedicated development teams to scale your technology initiatives.',
       features: ['Skilled Developers', 'Project Teams', 'Staff Augmentation', 'Remote Teams'],
-      icon: '👥'
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop&crop=center'
     },
     {
       id: 'strategic-consulting',
       title: 'Strategic Consulting',
       description: 'Technology strategy and digital transformation consulting to drive business growth and innovation.',
       features: ['Digital Strategy', 'Tech Roadmap', 'Architecture Review', 'Innovation Labs'],
-      icon: '📊'
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center'
     }
   ]
 
@@ -84,10 +85,17 @@ const ServicesSection = () => {
               <div className={`${styles.serviceCard} ${styles[service.id]}`}>
                 <div className={styles.serviceVisual}>
                   <div className={styles.visualContainer}>
-                    {/* Service Icon */}
-                    <div className={styles.serviceIcon}>{service.icon}</div>
-                    {/* Dynamic visual content based on service ID */}
-                    <div className={styles[`${service.id}Visual`]}></div>
+                    {/* Service Image */}
+                    <div className={styles.serviceImageContainer}>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={400}
+                        height={300}
+                        className={styles.serviceImage}
+                        priority={index < 3}
+                      />
+                    </div>
                   </div>
                 </div>
 
