@@ -8,6 +8,7 @@ import Services from "@/components/landingpage/Services";
 import { TextParallaxContentExample } from "@/components/common/ScrollTrigger";
 import ImageScroll from "@/components/landingpage/ImageScroll";
 import Testimonials from "@/components/landingpage/Testimonials";
+import LandingAbout from "@/components/landingpage/LandingAbout";
 
 // Loading component
 const SectionLoader = () => (
@@ -23,7 +24,8 @@ export default function Home() {
       <PerformanceOptimizer>
         <HeroSection />
         <ImageScroll />
-        <TextParallaxContentExample />
+        <LandingAbout />
+        {/* <TextParallaxContentExample /> */}
         <Services />
         <Testimonials />
         {/* <Suspense fallback={<SectionLoader />}>

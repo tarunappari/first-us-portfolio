@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "@/styles/careers/WhyWorkWithUs.module.scss";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { Users, Target, TrendingUp, Award, Heart } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -15,39 +17,79 @@ const WhyWorkWithUs = () => {
 
   const whyWorkData = [
     {
-      id: 1,
-      iconType: "people",
-      title: "Culture That Puts People First",
-      description:
-        "Be your true self every day. We embrace authenticity, build real connections, and empower impact within teams and communities.",
+      Icon: Users,
+      name: "Culture That Puts People First",
+      description: "Be your true self every day. We embrace authenticity, build real connections, and empower impact within teams and communities.",
+      href: "/careers",
+      cta: "Join Our Team",
+      background: (
+        <img
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+          alt="Team collaboration"
+        />
+      ),
+      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
     },
     {
-      id: 2,
-      iconType: "target",
-      title: "Purpose in Every Role",
-      description:
-        "Do meaningful work that inspires you. Explore diverse career paths and grow your skills while making a real difference.",
+      Icon: Target,
+      name: "Purpose in Every Role",
+      description: "Do meaningful work that inspires you. Explore diverse career paths and grow your skills while making a real difference.",
+      href: "/careers",
+      cta: "Explore Roles",
+      background: (
+        <img
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80"
+          alt="Purpose-driven work"
+        />
+      ),
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
     },
     {
-      id: 3,
-      iconType: "growth",
-      title: "Grow Beyond Limits",
-      description:
-        "Curiosity drives growth at First Us IT. We support your journey with flexible learning, coaching, and mentorship.",
+      Icon: TrendingUp,
+      name: "Grow Beyond Limits",
+      description: "Curiosity drives growth at First Us IT. We support your journey with flexible learning, coaching, and mentorship.",
+      href: "/careers",
+      cta: "Learn More",
+      background: (
+        <img
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+          alt="Growth and learning"
+        />
+      ),
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
     },
     {
-      id: 4,
-      iconType: "award",
-      title: "Rewarding What You Achieve",
-      description:
-        "Your contributions matter. Earn competitive, performance-based pay and share in the company’s long-term success.",
+      Icon: Award,
+      name: "Rewarding What You Achieve",
+      description: "Your contributions matter. Earn competitive, performance-based pay and share in the company’s long-term success.",
+      href: "/careers",
+      cta: "View Benefits",
+      background: (
+        <img
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80"
+          alt="Achievement and rewards"
+        />
+      ),
+      className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
     },
     {
-      id: 5,
-      iconType: "health",
-      title: "Well-being at the Core",
-      description:
-        "We support your full well-being—mental, physical, emotional, financial, and social—so you can truly thrive.",
+      Icon: Heart,
+      name: "Well-being at the Core",
+      description: "We support your full well-being—mental, physical, emotional, financial, and social—so you can truly thrive.",
+      href: "/careers",
+      cta: "Learn About Benefits",
+      background: (
+        <img
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+          alt="Well-being and health"
+        />
+      ),
+      className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
     },
   ];
 
@@ -135,90 +177,11 @@ const WhyWorkWithUs = () => {
         </div>
 
         <div className={styles.cardsGrid}>
-          {whyWorkData.map((item, index) => (
-            <div
-              key={item.id}
-              className={styles.card}
-              ref={(el) => (cardsRef.current[index] = el)}
-            >
-              <div className={styles.cardIcon}>
-                <div className={styles.iconContainer}>
-                  {item.iconType === "people" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                      <circle cx="8.5" cy="7" r="4" />
-                      <path d="M20 8v6" />
-                      <path d="M23 11v2" />
-                      <path d="M17 11v2" />
-                    </svg>
-                  )}
-                  {item.iconType === "target" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <circle cx="12" cy="12" r="6" />
-                      <circle cx="12" cy="12" r="2" />
-                    </svg>
-                  )}
-                  {item.iconType === "growth" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M3 3v18h18" />
-                      <path d="M7 12l4-4 4 4 6-6" />
-                      <circle cx="7" cy="12" r="1" />
-                      <circle cx="11" cy="8" r="1" />
-                      <circle cx="15" cy="12" r="1" />
-                      <circle cx="21" cy="6" r="1" />
-                    </svg>
-                  )}
-                  {item.iconType === "award" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="8" r="7" />
-                      <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88" />
-                    </svg>
-                  )}
-                  {item.iconType === "health" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z" />
-                    </svg>
-                  )}
-                </div>
-              </div>
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDescription}>{item.description}</p>
-              </div>
-              <div className={styles.cardGlow}></div>
-            </div>
-          ))}
+          <BentoGrid className="lg:grid-rows-3">
+            {whyWorkData.map((feature) => (
+              <BentoCard key={feature.name} {...feature} />
+            ))}
+          </BentoGrid>
         </div>
       </div>
     </section>

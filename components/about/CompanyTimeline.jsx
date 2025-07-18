@@ -1,150 +1,154 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from '@/styles/about/CompanyTimeline.module.scss';
-
-// Register ScrollTrigger plugin
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import React from 'react';
+import { Timeline } from '@/components/ui/timeline';
+import Image from 'next/image';
 
 const CompanyTimeline = () => {
-  const sectionRef = useRef(null);
-  const stepsRef = useRef([]);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const steps = stepsRef.current;
-
-      // Animate steps with staggered fade-in and slide-up
-      steps.forEach((step, index) => {
-        if (step) {
-          gsap.fromTo(step,
-            {
-              opacity: 0,
-              y: 50,
-              scale: 0.9
-            },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 0.8,
-              delay: index * 0.2,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: step,
-                start: "top 85%",
-                end: "bottom 15%",
-                toggleActions: "play none none reverse"
-              }
-            }
-          );
-        }
-      });
-    }
-  }, []);
 
   const journeySteps = [
     {
-      phase: 'Today',
-      iconType: 'foundation',
-      title: 'Building Foundation',
-      description: 'Establishing our core team and developing cutting-edge solutions with passion and expertise to serve our first clients.'
+      title: 'Today',
+      content: (
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-satoshi">Building Foundation</h3>
+          <p className="text-white/80 text-sm md:text-base font-normal mb-8 font-manrope leading-relaxed">
+            Establishing our core team and developing cutting-edge solutions with passion and expertise to serve our first clients.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+              alt="Team collaboration"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+            <Image
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80"
+              alt="Development workspace"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+          </div>
+        </div>
+      ),
     },
     {
-      phase: 'Next',
-      iconType: 'growth',
-      title: 'Growing Presence',
-      description: 'Expanding our service offerings and building strong client relationships while establishing our reputation in the market.'
+      title: 'Next',
+      content: (
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-satoshi">Growing Presence</h3>
+          <p className="text-white/80 text-sm md:text-base font-normal mb-8 font-manrope leading-relaxed">
+            Expanding our service offerings and building strong client relationships while establishing our reputation in the market.
+          </p>
+          <div className="mb-8">
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm mb-2">
+              <span className="text-[#00a8cc]">✅</span> Cloud Infrastructure Solutions
+            </div>
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm mb-2">
+              <span className="text-[#00a8cc]">✅</span> AI & Machine Learning Services
+            </div>
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm mb-2">
+              <span className="text-[#00a8cc]">✅</span> Digital Transformation Consulting
+            </div>
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm">
+              <span className="text-[#00a8cc]">✅</span> 24/7 Technical Support
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+              alt="Business growth analytics"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+            <Image
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80"
+              alt="Client meeting"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+          </div>
+        </div>
+      ),
     },
     {
-      phase: 'Later',
-      iconType: 'shield',
-      title: 'Market Leadership',
-      description: 'Scaling our operations, forming strategic partnerships, and becoming a recognized leader in digital transformation.'
+      title: 'Later',
+      content: (
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-satoshi">Market Leadership</h3>
+          <p className="text-white/80 text-sm md:text-base font-normal mb-8 font-manrope leading-relaxed">
+            Scaling our operations, forming strategic partnerships, and becoming a recognized leader in digital transformation.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://images.unsplash.com/photo-1729938413350-cfb6fb1c018a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Strategic partnership"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+            <Image
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+              alt="Market leadership"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+          </div>
+        </div>
+      ),
     },
     {
-      phase: 'Future',
-      iconType: 'innovation',
-      title: 'Innovation Pioneer',
-      description: 'Leading the industry with AI-powered solutions and emerging technologies, shaping the future of IT consulting.'
+      title: 'Future',
+      content: (
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-satoshi">Innovation Pioneer</h3>
+          <p className="text-white/80 text-sm md:text-base font-normal mb-8 font-manrope leading-relaxed">
+            Leading the industry with AI-powered solutions and emerging technologies, shaping the future of IT consulting.
+          </p>
+          <div className="mb-8">
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm mb-2">
+              <span className="text-[#00a8cc]">🚀</span> AI-Powered Automation
+            </div>
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm mb-2">
+              <span className="text-[#00a8cc]">🚀</span> Quantum Computing Solutions
+            </div>
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm mb-2">
+              <span className="text-[#00a8cc]">🚀</span> Blockchain Integration
+            </div>
+            <div className="flex gap-2 items-center text-white/70 text-xs md:text-sm">
+              <span className="text-[#00a8cc]">🚀</span> IoT & Edge Computing
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <Image
+              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
+              alt="AI technology"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+            <Image
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
+              alt="Future technology"
+              width={500}
+              height={300}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(0,168,204,0.2)] border border-[#00a8cc]/20"
+            />
+          </div>
+        </div>
+      ),
     }
   ];
 
   return (
-    <section className={styles.journeySection} ref={sectionRef}>
-      <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Our Journey Starts Here</h2>
-          <p className={styles.sectionSubtitle}>
-            From today's foundation to tomorrow's innovation
-          </p>
-        </div>
-
-        <div className={styles.stepsContainer}>
-          {journeySteps.map((step, index) => (
-            <div
-              key={step.phase}
-              className={styles.step}
-              ref={el => stepsRef.current[index] = el}
-            >
-              <div className={styles.stepIcon}>
-                <div className={styles.iconContainer}>
-                  {step.iconType === 'foundation' && (
-                    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M3 21h18"/>
-                      <path d="M5 21V7l8-4v18"/>
-                      <path d="M19 21V11l-6-4"/>
-                    </svg>
-                  )}
-                  {step.iconType === 'growth' && (
-                    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M3 3v18h18"/>
-                      <path d="M7 12l4-4 4 4 6-6"/>
-                      <circle cx="7" cy="12" r="1"/>
-                      <circle cx="11" cy="8" r="1"/>
-                      <circle cx="15" cy="12" r="1"/>
-                      <circle cx="21" cy="6" r="1"/>
-                    </svg>
-                  )}
-                  {step.iconType === 'shield' && (
-                    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                      <path d="M9 12l2 2 4-4"/>
-                    </svg>
-                  )}
-                  {step.iconType === 'innovation' && (
-                    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="3"/>
-                      <path d="M12 1v6"/>
-                      <path d="M12 17v6"/>
-                      <path d="M4.22 4.22l4.24 4.24"/>
-                      <path d="M15.54 15.54l4.24 4.24"/>
-                      <path d="M1 12h6"/>
-                      <path d="M17 12h6"/>
-                      <path d="M4.22 19.78l4.24-4.24"/>
-                      <path d="M15.54 8.46l4.24-4.24"/>
-                    </svg>
-                  )}
-                </div>
-                <div className={styles.iconGlow}></div>
-              </div>
-              <div className={styles.stepContent}>
-                <div className={styles.stepPhase}>{step.phase}</div>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepDescription}>{step.description}</p>
-              </div>
-              {index < journeySteps.length - 1 && (
-                <div className={styles.stepConnector}></div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="min-h-screen w-full">
+      <Timeline data={journeySteps} />
+    </div>
   );
 };
 

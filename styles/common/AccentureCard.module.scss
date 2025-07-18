@@ -1,18 +1,16 @@
 .container{
   position: relative;
-  width: 100vw;
 }
 
 .card {
   position: relative;
-  width:40rem;
+  width:30rem;
   height: 25rem;
   padding: 2rem;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
   border: none;
-  margin-bottom: 3rem;
 
   &:hover {
     transform: translateY(-16px);
@@ -23,7 +21,6 @@
 // Accenture Color Themes
 .red {
   background: linear-gradient(135deg, #e2062e 0%, #c8052a 100%);
-  left: 15%;
   
   &:hover {
     background: linear-gradient(135deg, #e2062e 0%, #b8041f 100%);
@@ -32,7 +29,6 @@
 
 .blue {
   background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
-  left: 45%;
   &:hover {
     background: linear-gradient(135deg, #0066cc 0%, #003377 100%);
   }
@@ -40,7 +36,6 @@
 
 .purple {
   background: linear-gradient(135deg, #460073 0%, #350055 100%);
-  left: 25%;
   &:hover {
     background: linear-gradient(135deg, #460073 0%, #240033 100%);
   }

@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "@/styles/about/WhyChooseUs.module.scss";
+import AccentureCard from "../common/AccentureCard";
+import { Shield, TrendingUp, Users, Zap, Target, Award } from "lucide-react";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -12,6 +14,31 @@ if (typeof window !== "undefined") {
 const WhyChooseUs = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+
+  // Function to render icons based on iconType
+  const renderIcon = (iconType) => {
+    const iconProps = {
+      size: 32,
+      className: styles.cardIcon
+    };
+
+    switch (iconType) {
+      case 'shield':
+        return <Shield {...iconProps} />;
+      case 'growth':
+        return <TrendingUp {...iconProps} />;
+      case 'team':
+        return <Users {...iconProps} />;
+      case 'innovation':
+        return <Zap {...iconProps} />;
+      case 'target':
+        return <Target {...iconProps} />;
+      case 'award':
+        return <Award {...iconProps} />;
+      default:
+        return <Shield {...iconProps} />;
+    }
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -50,7 +77,8 @@ const WhyChooseUs = () => {
   const trustFeatures = [
     {
       iconType: "shield",
-      title: "We transform possibilities through innovation and human creativity.",
+      title:
+        "We transform possibilities through innovation and human creativity.",
       description:
         "Our commitment extends beyond transactions. By measuring customer satisfaction across 10 key areas, we fine-tune our approach to create lasting impact.",
       highlight: "98% Client Satisfaction",
@@ -76,7 +104,7 @@ const WhyChooseUs = () => {
 
   return (
     <section className={styles.whyChooseSection} ref={sectionRef}>
-      <div className={styles.container}>
+      <div className={styles.whyChooseUsInfoContainer}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>What Sets Us Apart</h2>
           <p className={styles.sectionSubtitle}>
@@ -89,87 +117,55 @@ const WhyChooseUs = () => {
         </div>
 
         <div className={styles.cardsGrid}>
-          {trustFeatures.map((feature, index) => (
+          {trustFeatures.map((item, index) => (
             <div
-              key={feature.title}
-              className={`${styles.trustCard} ${styles[feature.cardType]}`}
+              key={item.id}
+              className={styles.card}
               ref={(el) => (cardsRef.current[index] = el)}
             >
-              <div className={styles.cardIcon}>
-                <div className={styles.iconContainer}>
-                  {feature.iconType === "shield" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                      <path d="M9 12l2 2 4-4" />
-                    </svg>
-                  )}
-                  {feature.iconType === "growth" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M3 3v18h18" />
-                      <path d="M7 12l4-4 4 4 6-6" />
-                      <circle cx="7" cy="12" r="1" />
-                      <circle cx="11" cy="8" r="1" />
-                      <circle cx="15" cy="12" r="1" />
-                      <circle cx="21" cy="6" r="1" />
-                    </svg>
-                  )}
-                  {feature.iconType === "team" && (
-                    <svg
-                      className={styles.icon}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                  )}
-                </div>
-                <div className={styles.iconGlow}></div>
-              </div>
-
               <div className={styles.cardContent}>
-                <div>
-                  <h3 className={styles.cardTitle}>{feature.title}</h3>
-                  <p className={styles.cardDescription}>
-                    {feature.description}
-                  </p>
+                <div className={styles.cardIconContainer}>
+                  {renderIcon(item.iconType)}
                 </div>
-                <div className={styles.cardHighlight}>
-                  <span className={styles.highlightBadge}>
-                    {feature.highlight}
-                  </span>
-                </div>
+                <h3 className={`${styles.cardTitle} textGradient`}>{item.title}</h3>
+                <p className={styles.cardDescription}>{item.description}</p>
               </div>
-              {/* <div style={{ width: 300, height: 300 }}>
-                <Player
-                  src="/assets/lottie/lines.lottie"
-                  background="transparent"
-                  speed={1}
-                  loop
-                  autoplay
-                />
-              </div> */}
-
               <div className={styles.cardGlow}></div>
             </div>
           ))}
         </div>
+        {/* <div className={styles.cardsGrid}>
+          {trustFeatures.map((feature, index) => (
+            <div
+              key={feature.title}
+              className={`${styles.trustCard}`}
+              ref={(el) => (cardsRef.current[index] = el)}
+            >
+              {index === 0 && (
+                <AccentureCard
+                  title={feature.title}
+                  description={feature.description}
+                />
+              )}
+              {index === 1 && (
+                <AccentureCard
+                  title={feature.title}
+                  description={feature.description}
+                  pattern="pattern2"
+                  colorTheme="blue"
+                />
+              )}
+              {index === 2 && (
+                <AccentureCard
+                  title={feature.title}
+                  description={feature.description}
+                  pattern="pattern3"
+                  colorTheme="purple"
+                />
+              )}
+            </div>
+          ))}
+        </div> */}
       </div>
     </section>
   );
