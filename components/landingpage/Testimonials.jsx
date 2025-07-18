@@ -86,7 +86,7 @@ const TestimonialsColumn = ({ className, testimonials, duration = 10 }) => {
                   className="p-8 rounded-3xl border border-[#00a8cc]/20 bg-gradient-to-br from-[#0a0a0a]/90 to-[#1a1a1a]/90 backdrop-blur-xl shadow-2xl shadow-[#00a8cc]/10 max-w-xs w-full hover:border-[#00a8cc]/40 transition-all duration-300"
                   key={i}
                 >
-                  <div className="text-white/90 text-sm leading-relaxed font-manrope mb-6">
+                  <div className="text-1xl leading-relaxed font-manrope mb-6">
                     "{text}"
                   </div>
                   <div className="flex items-center gap-3">
@@ -140,7 +140,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center justify-center max-w-[640px] mx-auto mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white text-center font-clash">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold tracking-tighter text-white text-center font-clash">
               What our <span className="bg-gradient-to-r from-[#00a8cc] to-[#0077be] bg-clip-text text-transparent textGradient">clients say</span>
             </h2>
             {/* <p className="text-center mt-6 text-white/70 text-lg max-w-2xl font-manrope leading-relaxed">
